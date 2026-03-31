@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media Content Management | Diligo Strategy</title>
+  <meta name="description" content="Your brand's social media presence is critical in today's digital landscape. We help you manage your channels by creating engaging content, maintaining consiste">
+  <link rel="icon" type="image/png" href="../img/favico.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/service.css">
+</head>
+<body>
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="../" class="nav-logo"><img src="../img/logo.png" alt="Diligo Strategy" height="40"></a>
+      <div class="nav-links" id="navLinks">
+        <a href="../#services">Services</a>
+        <a href="../#about">About</a>
+        <a href="../#process">Process</a>
+        <a href="../#contact">Contact</a>
+        <a href="../#contact" class="nav-cta">Let's Talk</a>
+      </div>
+      <div class="nav-right">
+        <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="service-hero">
+    <div class="container">
+      <a href="../#services" class="back-link">&larr; All Services</a>
+      <div class="service-hero-icon">&#128241;</div>
+      <h1>Social Media Content Management</h1>
+      <p class="service-hero-desc">Your brand's social media presence is critical in today's digital landscape. We help you manage your channels by creating engaging content, maintaining consistent posting schedules, and building a strong online community across all major platforms.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="service-content">
+        <div class="service-main">
+          <h2>Our Social Media Approach</h2>
+          <p>Our team creates and curates content that aligns with your brand's tone and goals while engaging your audience across Instagram, LinkedIn, Facebook, Twitter/X, and beyond.</p>
+
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li><span class="feature-check">&#10003;</span>Content creation that reflects your brand and resonates with your audience</li><li><span class="feature-check">&#10003;</span>Consistent posting schedules to ensure regular engagement</li><li><span class="feature-check">&#10003;</span>Community management to foster meaningful conversations</li><li><span class="feature-check">&#10003;</span>Data-driven insights to refine strategies and improve results</li><li><span class="feature-check">&#10003;</span>Platform-specific content adaptation for maximum impact</li>
+          </ul>
+
+          <div class="deliverables">
+            <h3>What You Get</h3>
+            <p>Keeping your brand connected and engaged with your audience.</p>
+            <div class="deliverables-grid">
+              <div class="deliverable-item"><span class="deliverable-icon">&#9679;</span><span>Engaging, on-brand social media posts for all platforms</span></div><div class="deliverable-item"><span class="deliverable-icon">&#9679;</span><span>Consistent posting and community engagement</span></div><div class="deliverable-item"><span class="deliverable-icon">&#9679;</span><span>Detailed reporting on audience engagement and growth</span></div><div class="deliverable-item"><span class="deliverable-icon">&#9679;</span><span>Strategic content planning for long-term social media success</span></div>
+            </div>
+          </div>
+
+          <blockquote class="service-quote">With effective social media management, your brand can cultivate an active online presence, build loyal followers, and grow its influence.</blockquote>
+        </div>
+
+        <aside class="service-sidebar">
+          <div class="sidebar-card">
+            <h4>Ready to get started?</h4>
+            <p>Let's discuss how we can help your business grow with social media content management.</p>
+            <a href="../#contact" class="btn btn-primary btn-full">Get In Touch</a>
+          </div>
+          <div class="sidebar-card">
+            <h4>Why Diligo?</h4>
+            <ul>
+              <li>25+ years of experience</li>
+              <li>10+ languages covered</li>
+              <li>310+ projects delivered</li>
+              <li>AI-enhanced workflow</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark cta-section">
+    <div class="container" style="text-align:center">
+      <h2>Ready to Take Your Content <span class="text-gradient">Global?</span></h2>
+      <p style="color:rgba(255,255,255,.7);max-width:500px;margin:16px auto 32px">Tell us about your project and we'll create a tailored strategy for your business.</p>
+      <a href="../#contact" class="btn btn-primary">Let's Talk</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2025 Diligo Strategy LLC. All rights reserved. &middot; <a href="../privacy.html" style="color:rgba(255,255,255,.5)">Privacy</a> &middot; <a href="../terms.html" style="color:rgba(255,255,255,.5)">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navHamburger').addEventListener('click',()=>{
+      document.getElementById('navLinks').classList.toggle('open');
+      document.getElementById('navHamburger').classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('navHamburger').classList.remove('open');
+    }));
+  </script>
+</body>
+</html>
