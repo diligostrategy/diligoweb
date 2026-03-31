@@ -138,41 +138,73 @@ document.addEventListener('DOMContentLoaded', () => {
       date: new Date().toISOString(),
     };
 
-    // Send lead to FormSubmit (email notification)
+    // Subscribe to Mailchimp via jsonp (no CORS issues)
+    const mcListUrl = 'https://diligostrategy.us19.list-manage.com/subscribe/post-json?u=7626df4e69bf6c5255724817a&id=57ea000f96';
     try {
-      await fetch('https://formsubmit.co/ajax/diligostrategy@gmail.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          _subject: 'Resource Download: ' + data.resource,
-          message: 'Resource: ' + data.resource + '\nName: ' + data.name + '\nEmail: ' + data.email + '\nDate: ' + data.date,
-        }),
+      await new Promise((resolve) => {
+        const cbName = '_mc_cb_' + Date.now();
+        window[cbName] = (resp) => { delete window[cbName]; resolve(resp); };
+        const script = document.createElement('script');
+        script.src = mcListUrl
+          + '&EMAIL=' + encodeURIComponent(data.email)
+          + '&FNAME=' + encodeURIComponent(data.name)
+          + '&RESOURCE=' + encodeURIComponent(data.resource)
+          + '&c=' + cbName;
+        document.body.appendChild(script);
+        setTimeout(() => { resolve({}); script.remove(); }, 5000);
       });
     } catch (err) { /* fail silently */ }
 
-    // Trigger the actual download
-    const downloadMap = {
-      'multilingual-seo-playbook': 'downloads/multilingual-seo-playbook.html',
-      'content-localization-checklist': 'downloads/content-localization-checklist.html',
-      'ai-content-tools-2025': 'downloads/ai-content-tools-2025.html',
-      'roi-calculator': 'downloads/roi-calculator.html',
-    };
-    const dlUrl = downloadMap[data.resource];
-    if (dlUrl) window.open(dlUrl, '_blank');
+    // Also notify via FormSubmit
+    try {
+      fetch('https://formsubmit.co/ajax/diligostrategy@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: data.name, email: data.email, _subject: 'Lead: ' + data.resource }),
+      });
+    } catch (e) {}
 
-    // Show success & close
+    // Show success — tell user to check email
     const lang = I18N ? I18N.current : 'en';
-    const thankMsg = lang === 'es' ? '¡Gracias! Tu descarga se ha abierto.' : 'Thank you! Your download has opened.';
-    leadForm.innerHTML = '<div style="text-align:center;padding:20px 0"><div style="font-size:3rem;margin-bottom:12px">&#10003;</div><p style="font-weight:600;font-size:16px">' + thankMsg + '</p></div>';
+    const thankMsg = lang === 'es'
+      ? '¡Gracias! Revisa tu email para descargar el recurso.'
+      : 'Thank you! Check your email for the download link.';
+    leadForm.innerHTML = '<div style="text-align:center;padding:20px 0"><div style="font-size:3rem;margin-bottom:12px">&#9993;</div><p style="font-weight:600;font-size:16px">' + thankMsg + '</p></div>';
     setTimeout(() => {
       leadModal.classList.remove('show');
       setTimeout(() => {
         leadForm.innerHTML = '<input type="text" name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Your Email" required><input type="hidden" name="resource" id="leadResource"><button type="submit" class="btn btn-primary btn-full">Download Free</button>';
         if (I18N) I18N.apply();
       }, 300);
-    }, 2500);
+    }, 3000);
+  });
+
+  // Footer newsletter subscription
+  const nlForm = document.getElementById('footerNlForm');
+  nlForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = nlForm.email.value;
+    const btn = nlForm.querySelector('button');
+    const origText = btn.textContent;
+    btn.textContent = '...';
+    btn.disabled = true;
+
+    try {
+      await new Promise((resolve) => {
+        const cbName = '_mc_nl_' + Date.now();
+        window[cbName] = () => { delete window[cbName]; resolve(); };
+        const script = document.createElement('script');
+        script.src = 'https://diligostrategy.us19.list-manage.com/subscribe/post-json?u=7626df4e69bf6c5255724817a&id=57ea000f96'
+          + '&EMAIL=' + encodeURIComponent(email)
+          + '&RESOURCE=newsletter'
+          + '&c=' + cbName;
+        document.body.appendChild(script);
+        setTimeout(() => { resolve(); script.remove(); }, 5000);
+      });
+    } catch (e) {}
+
+    const lang = I18N ? I18N.current : 'en';
+    nlForm.innerHTML = '<p style="color:#26c6da;font-weight:600;text-align:center">' + (lang === 'es' ? '¡Suscrito! Revisa tu email.' : 'Subscribed! Check your email.') + '</p>';
   });
 
 });

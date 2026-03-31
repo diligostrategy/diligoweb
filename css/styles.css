@@ -334,7 +334,25 @@ a.service-card { text-decoration: none; color: inherit; display: flex; flex-dire
   font-family: 'Inter', sans-serif;
 }
 .lead-modal input:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(251,94,1,.1); }
+.lead-checkbox { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-light); margin-bottom: 16px; cursor: pointer; }
+.lead-checkbox input { accent-color: var(--orange); width: 16px; height: 16px; }
 .lead-privacy { font-size: 11px; color: var(--gray-400); text-align: center; margin-top: 12px; }
+
+/* Footer newsletter */
+.footer-newsletter {
+  text-align: center; padding: 32px 0; margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.footer-newsletter h4 { color: #fff; font-size: 18px; margin-bottom: 8px; }
+.footer-newsletter p { color: rgba(255,255,255,.5); font-size: 14px; margin-bottom: 20px; max-width: 480px; margin-left: auto; margin-right: auto; }
+.footer-nl-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto; }
+.footer-nl-form input {
+  flex: 1; padding: 12px 16px; border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.06); border-radius: var(--radius);
+  color: #fff; font-size: 14px; font-family: 'Inter', sans-serif;
+}
+.footer-nl-form input::placeholder { color: rgba(255,255,255,.4); }
+.footer-nl-form input:focus { outline: none; border-color: var(--orange); }
 
 /* ── SCROLL ANIMATIONS ── */
 [data-aos] { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }

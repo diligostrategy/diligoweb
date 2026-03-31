@@ -520,8 +520,16 @@
           <a href="cookies.html" data-i18n="footer.cookies">Cookie Policy</a>
         </div>
       </div>
+      <div class="footer-newsletter">
+        <h4 data-i18n="footer.nl.title">Stay Updated</h4>
+        <p data-i18n="footer.nl.desc">Get content marketing tips, industry insights, and exclusive resources delivered to your inbox.</p>
+        <form class="footer-nl-form" id="footerNlForm">
+          <input type="email" name="email" placeholder="Your email address" data-i18n-ph="form.email" required>
+          <button type="submit" class="btn btn-primary btn-sm" data-i18n="footer.nl.btn">Subscribe</button>
+        </form>
+      </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 Diligo Strategy LLC. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p>&copy; 2026 Diligo Strategy LLC. <span data-i18n="footer.rights">All rights reserved.</span></p>
       </div>
     </div>
   </footer>
@@ -545,6 +553,7 @@
         <input type="text" name="name" placeholder="Your Name" data-i18n-ph="form.name" required>
         <input type="email" name="email" placeholder="Your Email" data-i18n-ph="form.email" required>
         <input type="hidden" name="resource" id="leadResource">
+        <label class="lead-checkbox"><input type="checkbox" name="newsletter" checked> <span data-i18n="lead.newsletter">Also subscribe me to the newsletter</span></label>
         <button type="submit" class="btn btn-primary btn-full" data-i18n="resources.download">Download Free</button>
       </form>
       <p class="lead-privacy" data-i18n="lead.privacy">We respect your privacy. No spam, ever.</p>
