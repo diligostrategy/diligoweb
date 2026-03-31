@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
       date: new Date().toISOString(),
     };
 
-    // Send to FormSubmit (logs the lead)
+    // Send lead to FormSubmit (email notification)
     try {
       await fetch('https://formsubmit.co/ajax/diligostrategy@gmail.com', {
         method: 'POST',
@@ -152,20 +152,27 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     } catch (err) { /* fail silently */ }
 
+    // Trigger the actual download
+    const downloadMap = {
+      'multilingual-seo-playbook': 'downloads/multilingual-seo-playbook.html',
+      'content-localization-checklist': 'downloads/content-localization-checklist.html',
+      'ai-content-tools-2025': 'downloads/ai-content-tools-2025.html',
+      'roi-calculator': 'downloads/roi-calculator.html',
+    };
+    const dlUrl = downloadMap[data.resource];
+    if (dlUrl) window.open(dlUrl, '_blank');
+
     // Show success & close
-    leadForm.innerHTML = '<div style="text-align:center;padding:20px 0"><div style="font-size:3rem;margin-bottom:12px">&#10003;</div><p style="font-weight:600;font-size:16px">Thank you! Check your email.</p></div>';
+    const lang = I18N ? I18N.current : 'en';
+    const thankMsg = lang === 'es' ? '¡Gracias! Tu descarga se ha abierto.' : 'Thank you! Your download has opened.';
+    leadForm.innerHTML = '<div style="text-align:center;padding:20px 0"><div style="font-size:3rem;margin-bottom:12px">&#10003;</div><p style="font-weight:600;font-size:16px">' + thankMsg + '</p></div>';
     setTimeout(() => {
       leadModal.classList.remove('show');
-      // Reset form after close
       setTimeout(() => {
-        leadForm.innerHTML = `
-          <input type="text" name="name" placeholder="Your Name" required>
-          <input type="email" name="email" placeholder="Your Email" required>
-          <input type="hidden" name="resource" id="leadResource">
-          <button type="submit" class="btn btn-primary btn-full">Download Free</button>`;
+        leadForm.innerHTML = '<input type="text" name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Your Email" required><input type="hidden" name="resource" id="leadResource"><button type="submit" class="btn btn-primary btn-full">Download Free</button>';
         if (I18N) I18N.apply();
       }, 300);
-    }, 2000);
+    }, 2500);
   });
 
 });

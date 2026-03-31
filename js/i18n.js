@@ -146,7 +146,9 @@ const I18N = {
       if (d[key]) el.placeholder = d[key];
     });
     document.documentElement.lang = this.current;
-    document.getElementById('langFlag').textContent = this.current === 'en' ? '\uD83C\uDDF2\uD83C\uDDFD' : '\uD83C\uDDFA\uD83C\uDDF8';
+    const flagUS = '<svg width="20" height="14" viewBox="0 0 60 40"><rect width="60" height="40" fill="#B22234"/><rect y="3" width="60" height="3" fill="#fff"/><rect y="9" width="60" height="3" fill="#fff"/><rect y="15" width="60" height="3" fill="#fff"/><rect y="21" width="60" height="3" fill="#fff"/><rect y="27" width="60" height="3" fill="#fff"/><rect y="33" width="60" height="3" fill="#fff"/><rect width="24" height="21" fill="#3C3B6E"/></svg>';
+    const flagMX = '<svg width="20" height="14" viewBox="0 0 60 40"><rect width="20" height="40" fill="#006847"/><rect x="20" width="20" height="40" fill="#fff"/><rect x="40" width="20" height="40" fill="#CE1126"/></svg>';
+    document.getElementById('langFlag').innerHTML = this.current === 'en' ? flagMX : flagUS;
   },
   toggle() {
     this.current = this.current === 'en' ? 'es' : 'en';
