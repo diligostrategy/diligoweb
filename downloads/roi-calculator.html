@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Content ROI Calculator | Diligo Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0f1e33;
+    --orange: #FB5E01;
+    --teal: #26c6da;
+    --light-bg: #f7f8fa;
+    --text: #2d3748;
+    --text-light: #64748b;
+    --border: #e2e8f0;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  .page {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 40px 48px;
+  }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--orange);
+    padding-bottom: 20px;
+    margin-bottom: 12px;
+  }
+  .doc-header img { height: 44px; }
+  .doc-header .doc-type {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--orange);
+    font-weight: 700;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 32px;
+    color: var(--orange);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a2d4a 100%);
+    color: #fff;
+    padding: 56px 48px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+  .cover h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .cover .subtitle {
+    font-size: 17px;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .cover .meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--teal);
+  }
+  p { margin-bottom: 14px; }
+
+  /* FORM */
+  .calc-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin: 24px 0 40px;
+  }
+
+  .input-panel {
+    background: var(--light-bg);
+    padding: 28px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .input-panel h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--teal);
+  }
+
+  .field {
+    margin-bottom: 18px;
+  }
+  .field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 5px;
+  }
+  .field .hint {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 5px;
+  }
+  .field input, .field select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--text);
+    background: #fff;
+    transition: border-color 0.2s;
+  }
+  .field input:focus, .field select:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(38,198,218,0.15);
+  }
+
+  .calc-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--orange);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: opacity 0.2s;
+  }
+  .calc-btn:hover { opacity: 0.9; }
+
+  /* RESULTS */
+  .results-panel {
+    background: var(--navy);
+    padding: 28px;
+    border-radius: 8px;
+    color: #fff;
+  }
+  .results-panel h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(38,198,218,0.3);
+  }
+
+  .result-card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .result-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 4px;
+  }
+  .result-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--teal);
+  }
+  .result-value.highlight { color: var(--orange); }
+  .result-detail {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+  }
+
+  .result-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin: 16px 0;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(255,255,255,0.4);
+    font-size: 14px;
+  }
+
+  /* METHODOLOGY */
+  .methodology {
+    background: var(--light-bg);
+    padding: 24px;
+    border-radius: 8px;
+    margin-top: 32px;
+    font-size: 13px;
+  }
+  .methodology h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .methodology ul {
+    margin: 8px 0 8px 20px;
+  }
+  .methodology li {
+    margin-bottom: 4px;
+  }
+
+  .doc-footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 2px solid var(--border);
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-light);
+  }
+  .doc-footer a { color: var(--orange); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .calc-section { grid-template-columns: 1fr; }
+    .page { padding: 24px 20px; }
+    .cover { padding: 36px 24px; }
+    .cover h1 { font-size: 24px; }
+  }
+
+  @media print {
+    body { font-size: 11pt; }
+    .page { padding: 0; max-width: 100%; }
+    .back-link, .doc-footer .no-print { display: none; }
+    .calc-btn { display: none; }
+    .results-panel { background: #333 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { margin: 1.5cm; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="../img/logo.png" alt="Diligo Strategy">
+    <span class="doc-type">Interactive Tool</span>
+  </div>
+
+  <a href="https://diligostrategy.com" class="back-link">&larr; Back to diligostrategy.com</a>
+
+  <div class="cover">
+    <h1>Global Content ROI Calculator</h1>
+    <p class="subtitle">Estimate the return on investment for your multilingual content strategy</p>
+    <p class="meta">Published by Diligo Strategy &middot; 2025 Edition &middot; diligostrategy.com</p>
+  </div>
+
+  <p>Use this calculator to estimate the potential ROI of expanding your content into multiple languages. Enter your current metrics and investment plans, and we will project the expected returns based on industry benchmarks for multilingual content programs.</p>
+
+  <h2>Calculate Your ROI</h2>
+
+  <div class="calc-section">
+
+    <!-- INPUT PANEL -->
+    <div class="input-panel">
+      <h3>Your Inputs</h3>
+
+      <div class="field">
+        <label for="budget">Monthly Content Budget (USD)</label>
+        <div class="hint">Total budget for content creation and localization</div>
+        <input type="number" id="budget" placeholder="5000" min="500" step="500" value="5000">
+      </div>
+
+      <div class="field">
+        <label for="languages">Number of Target Languages</label>
+        <div class="hint">How many languages will you localize into?</div>
+        <input type="number" id="languages" placeholder="3" min="1" max="50" value="3">
+      </div>
+
+      <div class="field">
+        <label for="markets">Target Markets</label>
+        <div class="hint">Number of distinct geographic markets</div>
+        <input type="number" id="markets" placeholder="4" min="1" max="100" value="4">
+      </div>
+
+      <div class="field">
+        <label for="traffic">Current Monthly Organic Traffic</label>
+        <div class="hint">Your current monthly organic visitors (all languages)</div>
+        <input type="number" id="traffic" placeholder="10000" min="100" step="1000" value="10000">
+      </div>
+
+      <div class="field">
+        <label for="convRate">Current Conversion Rate (%)</label>
+        <div class="hint">Percentage of visitors that become leads</div>
+        <input type="number" id="convRate" placeholder="2.5" min="0.1" max="100" step="0.1" value="2.5">
+      </div>
+
+      <div class="field">
+        <label for="leadValue">Average Lead Value (USD)</label>
+        <div class="hint">Average revenue per converted lead</div>
+        <input type="number" id="leadValue" placeholder="200" min="1" step="10" value="200">
+      </div>
+
+      <button class="calc-btn" onclick="calculate()">Calculate ROI</button>
+    </div>
+
+    <!-- RESULTS PANEL -->
+    <div class="results-panel">
+      <h3>Projected Results (12 Months)</h3>
+
+      <div id="results-content">
+        <div class="empty-state">
+          Enter your data and click<br>"Calculate ROI" to see projections.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- METHODOLOGY -->
+  <div class="methodology">
+    <h3>Calculation Methodology</h3>
+    <p>These projections are based on aggregated industry benchmarks from multilingual content programs. Actual results will vary based on content quality, market competition, and execution.</p>
+    <ul>
+      <li><strong>Traffic multiplier:</strong> Each additional language typically generates 40-70% of the original language's organic traffic within 12 months (we use 55% as a mid-range estimate).</li>
+      <li><strong>Localization cost factor:</strong> Localization into each additional language typically costs 35-50% of the original content creation cost (we use 40%).</li>
+      <li><strong>Conversion rate adjustment:</strong> Localized content in the user's native language increases conversion rates by approximately 70% compared to non-localized content (CSA Research).</li>
+      <li><strong>Ramp-up factor:</strong> International SEO results are averaged over 12 months, accounting for the 3-6 month ramp-up period for new language versions to gain traction.</li>
+      <li><strong>Content velocity:</strong> We assume your budget allows for consistent monthly content production across all target languages.</li>
+    </ul>
+  </div>
+
+  <div class="doc-footer">
+    <p>&copy; 2025 Diligo Strategy. All rights reserved.</p>
+    <p><a href="https://diligostrategy.com">diligostrategy.com</a></p>
+    <p class="no-print" style="margin-top:12px;"><a href="https://diligostrategy.com">&larr; Back to diligostrategy.com</a></p>
+  </div>
+
+</div>
+
+<script>
+function formatUSD(n) {
+  return '$' + Math.round(n).toLocaleString('en-US');
+}
+function formatNum(n) {
+  return Math.round(n).toLocaleString('en-US');
+}
+function formatPct(n) {
+  return n.toFixed(1) + '%';
+}
+
+function calculate() {
+  // Inputs
+  var budget = parseFloat(document.getElementById('budget').value) || 5000;
+  var languages = parseInt(document.getElementById('languages').value) || 3;
+  var markets = parseInt(document.getElementById('markets').value) || 4;
+  var traffic = parseFloat(document.getElementById('traffic').value) || 10000;
+  var convRate = parseFloat(document.getElementById('convRate').value) || 2.5;
+  var leadValue = parseFloat(document.getElementById('leadValue').value) || 200;
+
+  // Calculations
+  var annualBudget = budget * 12;
+
+  // Localization cost: original content + 40% per additional language
+  var localizationCostFactor = 1 + (languages * 0.40);
+  var totalAnnualInvestment = annualBudget * localizationCostFactor;
+
+  // Traffic projection: each language adds ~55% of base traffic (12-month average, accounting for ramp)
+  var trafficPerLanguage = traffic * 0.55;
+  var projectedNewTraffic = trafficPerLanguage * languages;
+  var totalProjectedTraffic = traffic + projectedNewTraffic;
+  var monthlyProjectedTraffic = totalProjectedTraffic; // monthly
+  var annualProjectedTraffic = totalProjectedTraffic * 12;
+
+  // Traffic increase percentage
+  var trafficIncreasePct = (projectedNewTraffic / traffic) * 100;
+
+  // Conversion: localized content converts ~70% better
+  var localizedConvRate = convRate * 1.70;
+  var baseMonthlyLeads = traffic * (convRate / 100);
+  var newMonthlyLeads = projectedNewTraffic * (localizedConvRate / 100);
+  var totalMonthlyLeads = baseMonthlyLeads + newMonthlyLeads;
+  var totalAnnualLeads = totalMonthlyLeads * 12;
+
+  // Revenue
+  var currentAnnualRevenue = baseMonthlyLeads * leadValue * 12;
+  var projectedAnnualRevenue = totalMonthlyLeads * leadValue * 12;
+  var additionalRevenue = projectedAnnualRevenue - currentAnnualRevenue;
+
+  // ROI
+  var roi = ((additionalRevenue - totalAnnualInvestment) / totalAnnualInvestment) * 100;
+
+  // Cost per lead
+  var costPerLead = totalAnnualInvestment / totalAnnualLeads;
+
+  // Build results
+  var html = '';
+
+  // ROI
+  html += '<div class="result-card">';
+  html += '<div class="result-label">Projected 12-Month ROI</div>';
+  html += '<div class="result-value ' + (roi > 0 ? 'highlight' : '') + '">' + formatPct(roi) + '</div>';
+  html += '<div class="result-detail">Return on your content localization investment</div>';
+  html += '</div>';
+
+  // Additional Revenue
+  html += '<div class="result-card">';
+  html += '<div class="result-label">Additional Annual Revenue</div>';
+  html += '<div class="result-value">' + formatUSD(additionalRevenue) + '</div>';
+  html += '<div class="result-detail">From ' + formatNum(newMonthlyLeads * 12) + ' new leads across ' + languages + ' languages</div>';
+  html += '</div>';
+
+  html += '<hr class="result-divider">';
+
+  // Traffic increase
+  html += '<div class="result-card">';
+  html += '<div class="result-label">Projected Monthly Traffic</div>';
+  html += '<div class="result-value">' + formatNum(monthlyProjectedTraffic) + '</div>';
+  html += '<div class="result-detail">+' + formatPct(trafficIncreasePct) + ' increase (' + formatNum(projectedNewTraffic) + ' new monthly visitors)</div>';
+  html += '</div>';
+
+  // Total investment
+  html += '<div class="result-card">';
+  html += '<div class="result-label">Total Annual Investment</div>';
+  html += '<div class="result-value">' + formatUSD(totalAnnualInvestment) + '</div>';
+  html += '<div class="result-detail">' + formatUSD(annualBudget) + ' base + ' + formatUSD(totalAnnualInvestment - annualBudget) + ' localization (' + languages + ' languages)</div>';
+  html += '</div>';
+
+  // Cost per lead
+  html += '<div class="result-card">';
+  html += '<div class="result-label">Cost Per Lead</div>';
+  html += '<div class="result-value">' + formatUSD(costPerLead) + '</div>';
+  html += '<div class="result-detail">' + formatNum(totalAnnualLeads) + ' total leads projected annually</div>';
+  html += '</div>';
+
+  // Monthly leads
+  html += '<div class="result-card">';
+  html += '<div class="result-label">Monthly Leads (Localized Markets)</div>';
+  html += '<div class="result-value">' + formatNum(newMonthlyLeads) + '</div>';
+  html += '<div class="result-detail">At ' + formatPct(localizedConvRate) + ' conversion rate (vs ' + formatPct(convRate) + ' baseline)</div>';
+  html += '</div>';
+
+  document.getElementById('results-content').innerHTML = html;
+}
+</script>
+</body>
+</html>

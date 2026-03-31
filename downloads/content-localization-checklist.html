@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Localization Checklist | Diligo Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0f1e33;
+    --orange: #FB5E01;
+    --teal: #26c6da;
+    --light-bg: #f7f8fa;
+    --text: #2d3748;
+    --text-light: #64748b;
+    --border: #e2e8f0;
+    --green: #22c55e;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 48px;
+  }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--orange);
+    padding-bottom: 20px;
+    margin-bottom: 12px;
+  }
+  .doc-header img { height: 44px; }
+  .doc-header .doc-type {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--orange);
+    font-weight: 700;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 32px;
+    color: var(--orange);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a2d4a 100%);
+    color: #fff;
+    padding: 56px 48px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+  .cover h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .cover .subtitle {
+    font-size: 17px;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .cover .meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .intro {
+    font-size: 16px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--teal);
+    margin: 36px 0 20px;
+    padding: 10px 16px;
+    background: var(--navy);
+    border-radius: 4px;
+  }
+
+  /* CHECKLIST ITEM */
+  .check-item {
+    display: flex;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .check-item:last-child { border-bottom: none; }
+
+  .check-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--light-bg);
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--navy);
+    margin-top: 2px;
+  }
+
+  .check-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .check-content p {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .check-content .why {
+    font-size: 13px;
+    color: var(--text-light);
+    font-style: italic;
+  }
+  .check-content .action {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--orange);
+    background: #fff5f0;
+    padding: 3px 10px;
+    border-radius: 4px;
+  }
+
+  .print-box {
+    margin-top: 40px;
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+  }
+  .print-box p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 12px;
+  }
+  .print-btn {
+    display: inline-block;
+    background: var(--orange);
+    color: #fff;
+    border: none;
+    padding: 10px 28px;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .print-btn:hover { opacity: 0.9; }
+
+  .doc-footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 2px solid var(--border);
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-light);
+  }
+  .doc-footer a { color: var(--orange); text-decoration: none; }
+
+  @media print {
+    body { font-size: 11pt; }
+    .page { padding: 0; max-width: 100%; }
+    .back-link, .print-box, .doc-footer .no-print { display: none; }
+    .cover { break-after: page; }
+    .check-item { break-inside: avoid; }
+    .check-num { border-color: #000; }
+    @page { margin: 1.8cm; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="../img/logo.png" alt="Diligo Strategy">
+    <span class="doc-type">Printable Checklist</span>
+  </div>
+
+  <a href="https://diligostrategy.com" class="back-link">&larr; Back to diligostrategy.com</a>
+
+  <div class="cover">
+    <h1>Content Localization Checklist</h1>
+    <p class="subtitle">20 essential checkpoints for culturally accurate, SEO-optimized localized content</p>
+    <p class="meta">Published by Diligo Strategy &middot; 2025 Edition &middot; diligostrategy.com</p>
+  </div>
+
+  <p class="intro">Use this checklist for every piece of content you localize. Print it, check off each item, and ensure nothing falls through the cracks. Each point includes a brief explanation of why it matters and what action to take.</p>
+
+  <!-- SECTION: CULTURAL ADAPTATION -->
+  <div class="section-title">Cultural Adaptation</div>
+
+  <div class="check-item">
+    <div class="check-num">1</div>
+    <div class="check-content">
+      <h3>Cultural references are localized</h3>
+      <p>Replace idioms, metaphors, humor, and cultural references with locally relevant equivalents. A sports analogy that works in the US (baseball) should become football in Europe or cricket in India.</p>
+      <p class="why">Why: Untranslatable references confuse readers and signal that the content was not written for them.</p>
+      <span class="action">Action: Flag all culture-specific references for native reviewer</span>
+    </div>
+  </div>
+
+  <div class="check-item">
+    <div class="check-num">2</div>
+    <div class="check-content">
+      <h3>Images and visuals are culturally appropriate</h3>
+      <p>Review all images, icons, and graphics for cultural sensitivity. Stock photos should reflect the ethnic diversity of the target market. Hand gestures, colors, and symbols carry different meanings across cultures.</p>
+      <p class="why">Why: Visual mismatches undermine credibility and can cause offense in some markets.</p>
+      <span class="action">Action: Source region-appropriate imagery for each market</span>
+    </div>
+  </div>
+
+  <div class="check-item">
+    <div class="check-num">3</div>
+    <div class="check-content">
+      <h3>Color symbolism is verified</h3>
+      <p>White symbolizes purity in Western cultures but mourning in parts of East Asia. Red means luck in China but danger in the West. Verify that your color palette does not carry unintended connotations.</p>
+      <p class="why">Why: Color associations are deeply ingrained and can subconsciously affect brand perception.</p>
+      <span class="action">Action: Document color meanings per target market</span>
+    </div>
+  </div>
+
+  <!-- SECTION: FORMATTING & STANDARDS -->
+  <div class="section-title">Formatting &amp; Standards</div>
+
+  <div class="check-item">
+    <div class="check-num">4</div>
+    <div class="check-content">
+      <h3>Date formats follow local conventions</h3>
+      <p>US uses MM/DD/YYYY, most of Europe uses DD/MM/YYYY, Japan uses YYYY/MM/DD. Ambiguous dates like 03/04/2025 will be misread in half your markets.</p>
+      <p class="why">Why: Incorrect date formats cause confusion and erode trust in data-heavy content.</p>
+      <span class="action">Action: Set locale-specific date format rules in your CMS or style guide</span>
+    </div>
+  </div>
+
+  <div class="check-item">
+    <div class="check-num">5</div>
+    <div class="check-content">
+      <h3>Number and currency formats are correct</h3>
+      <p>Decimal separators (period vs. comma), thousands separators, and currency symbols vary by region. 1,000.50 in the US is 1.000,50 in Germany. Always use the local currency or clearly mark USD/EUR.</p>
+      <p class="why">Why: Incorrect number formats can completely change the meaning of financial data.</p>
+      <span class="action">Action: Apply locale-aware number formatting consistently</span>
+    </div>
+  </div>
+
+  <div class="check-item">
+    <div class="check-num">6</div>
+    <div class="check-content">
+      <h3>Measurement units are localized</h3>
+      <p>Convert miles to kilometers, Fahrenheit to Celsius, pounds to kilograms, and inches to centimeters for metric-system markets. Provide dual units where precision matters.</p>
+      <p class="why">Why: Unfamiliar units force readers to do mental math, increasing cognitive load and bounce rates.</p>
+      <span class="action">Action: Create a conversion reference sheet for your localization team</span>
+    </div>
+  </div>
+
+  <div class="check-item">
+    <div class="check-num">7</div>
+    <div class="check-content">
+      <h3>Address and phone number formats are correct</h3>
+      <p>Address structures vary widely: postal code before or after city, state vs. province, floor/building conventions. Phone numbers need country codes and local formatting.</p>
+      <p class="why">Why: Incorrect contact formats reduce conversion on contact pages and landing pages.</p>
+      <span class="action">Action: Validate all contact information with local format standards</span>
+    </div>
+  </div>
+
+  <!-- SECTION: LEGAL & COMPLIANCE -->
+  <div class="section-title">Legal &amp; Compliance</div>
+
+  <div class="check-item">
+    <div class="check-num">8</div>
+    <div class="check-content">
+      <h3>Privacy and data collection comply with local laws</h3>
+      <p>GDPR in Europe, LGPD in Brazil, PIPA in South Korea, PIPL in China. Each has different consent requirements, data storage rules, and user rights. Cookie banners, privacy policies, and opt-in mechanisms must be localized.</p>
+      <p class="why">Why: Non-compliance can result in significant fines and legal liability.</p>
+      <span class="action">Action: Have local legal counsel review each market's compliance requirements</span>
+    </div>
+  </div>
+
+  <div class="check-item">
+    <div class="check-num">9</div>
+    <div class="check-content">
+      <h3>Disclaimers and legal text are locally valid</h3>
+      <p>Terms of service, disclaimers, and warranty text must be legally valid in the target jurisdiction. Direct translations of US legal language may not hold up in other legal systems.</p>
+      <p class="why">Why: Invalid legal text provides no protection and may create liability.</p>
+      <span class="action">Action: Commission local legal review for all regulatory content</span>
+    </div>
+  </div>
+
+  <div class="check-item">
+    <div class="check-num">10</div>
+    <div class="check-content">
+      <h3>Industry-specific regulations are addressed</h3>
+      <p>Financial services, healthcare, food, and pharmaceutical content face additional regulations in each market. Claims that are allowed in one country may be prohibited in another.</p>
+      <p class="why">Why: Regulated industries face heightened scrutiny and penalties for non-compliant content.</p>
+      <span class="action">Action: Map regulatory requirements per industry per market before localization</span>
+    </div>
+  </div>
+
+  <!-- SECTION: TONE & LANGUAGE -->
+  <div class="section-title">Tone &amp; Language Adaptation</div>
+
+  <div class="check-item">
+    <div class="check-num">11</div>
+    <div class="check-content">
+      <h3>Formality level matches market expectations</h3>
+      <p>Japanese business communication requires keigo (honorific language). German audiences expect formal "Sie" vs. informal "du" depending on context. French marketing increasingly uses "tu" for younger audiences but "vous" for B2B.</p>
+      <p class="why">Why: Wrong formality level makes your brand seem either unprofessional or cold and distant.</p>
+      <span class="action">Action: Define formality guidelines per language in your brand style guide</span>
+    </div>
+  </div>
+
+  <div class="check-item">
+    <div class="check-num">12</div>
+    <div class="check-content">
+      <h3>Brand voice is adapted, not just translated</h3>
+      <p>A playful, casual brand voice in English may need to become warm but professional in Japanese or direct and efficient in German. Adapt the personality to what resonates in each culture while maintaining brand consistency.</p>
+      <p class="why">Why: Brand voice that feels unnatural in a language undermines authenticity and engagement.</p>
+      <span class="action">Action: Create market-specific brand voice guidelines with examples</span>
+    </div>
+  </div>
+
+  <div class="check-item">
+    <div class="check-num">13</div>
+    <div class="check-content">
+      <h3>Text expansion/contraction is accounted for</h3>
+      <p>English to German expands ~30%. English to Finnish can expand up to 40%. English to Chinese/Japanese contracts significantly. UI elements, buttons, headlines, and layouts must accommodate these changes.</p>
+      <p class="why">Why: Truncated text looks broken; excessive whitespace looks unfinished.</p>
+      <span class="action">Action: Test all UI elements with longest expected translations</span>
+    </div>
+  </div>
+
+  <!-- SECTION: SEO LOCALIZATION -->
+  <div class="section-title">SEO Localization</div>
+
+  <div class="check-item">
+    <div class="check-num">14</div>
+    <div class="check-content">
+      <h3>Keywords are researched per language, not translated</h3>
+      <p>Conduct fresh keyword research in each target language. Search behavior, term popularity, and intent vary dramatically. Use local keyword tools and native speaker input.</p>
+      <p class="why">Why: Translated keywords often have zero search volume or wrong intent in the target language.</p>
+      <span class="action">Action: Complete local keyword research before starting localization</span>
+    </div>
+  </div>
+
+  <div class="check-item">
+    <div class="check-num">15</div>
+    <div class="check-content">
+      <h3>Meta titles and descriptions are locally optimized</h3>
+      <p>Write unique, keyword-optimized meta titles and descriptions for each language version. These should read naturally and include a compelling call to action relevant to the local audience.</p>
+      <p class="why">Why: Meta elements directly impact click-through rates from search results.</p>
+      <span class="action">Action: Write meta elements after keyword research, not as translations</span>
+    </div>
+  </div>
+
+  <div class="check-item">
+    <div class="check-num">16</div>
+    <div class="check-content">
+      <h3>URL slugs are transliterated or translated</h3>
+      <p>Use readable, keyword-containing URL slugs in each language. For non-Latin scripts, decide between transliteration (romanized version) or native script based on your URL strategy and CMS capabilities.</p>
+      <p class="why">Why: Localized URLs improve CTR and provide additional keyword signals.</p>
+      <span class="action">Action: Define URL slug strategy per language in technical SEO guidelines</span>
+    </div>
+  </div>
+
+  <!-- SECTION: TESTING & QA -->
+  <div class="section-title">Testing &amp; Quality Assurance</div>
+
+  <div class="check-item">
+    <div class="check-num">17</div>
+    <div class="check-content">
+      <h3>Native speaker review completed</h3>
+      <p>Every localized piece must be reviewed by a native speaker of the target language who is also a resident of or deeply familiar with the target market. Diaspora speakers may miss current local trends and evolving language.</p>
+      <p class="why">Why: Machine translation and non-native review miss nuances that readers immediately notice.</p>
+      <span class="action">Action: Schedule native review as a mandatory step in your workflow</span>
+    </div>
+  </div>
+
+  <div class="check-item">
+    <div class="check-num">18</div>
+    <div class="check-content">
+      <h3>Functional testing in target locale completed</h3>
+      <p>Test forms, CTAs, dynamic content, and interactive elements with locale-specific inputs. Verify that date pickers, address fields, and payment forms work correctly with local formats and input methods.</p>
+      <p class="why">Why: Functional bugs in localized versions directly block conversions.</p>
+      <span class="action">Action: Create locale-specific test cases for all interactive elements</span>
+    </div>
+  </div>
+
+  <div class="check-item">
+    <div class="check-num">19</div>
+    <div class="check-content">
+      <h3>Layout and rendering verified across devices</h3>
+      <p>Check that translated content renders correctly on mobile and desktop. RTL languages (Arabic, Hebrew) need full layout mirroring. CJK text needs appropriate line-breaking and font rendering.</p>
+      <p class="why">Why: Layout breaks are the most visible sign of a low-quality localization.</p>
+      <span class="action">Action: Browser test each language version on mobile, tablet, and desktop</span>
+    </div>
+  </div>
+
+  <div class="check-item">
+    <div class="check-num">20</div>
+    <div class="check-content">
+      <h3>Back-translation or quality scoring completed</h3>
+      <p>For critical content (legal, medical, financial), perform back-translation to verify accuracy. For marketing content, use a quality scoring framework such as MQM (Multidimensional Quality Metrics) to objectively assess localization quality.</p>
+      <p class="why">Why: Systematic quality measurement identifies patterns and improves future localization.</p>
+      <span class="action">Action: Implement quality scoring for ongoing localization quality tracking</span>
+    </div>
+  </div>
+
+  <!-- PRINT -->
+  <div class="print-box no-print">
+    <p>Print this checklist or save as PDF to use with your localization projects.</p>
+    <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <div class="doc-footer">
+    <p>&copy; 2025 Diligo Strategy. All rights reserved.</p>
+    <p><a href="https://diligostrategy.com">diligostrategy.com</a></p>
+    <p class="no-print" style="margin-top:12px;"><a href="https://diligostrategy.com">&larr; Back to diligostrategy.com</a></p>
+  </div>
+
+</div>
+</body>
+</html>
