@@ -17,12 +17,12 @@
 
   // Color orbs that float and blend
   const orbs = [
-    { x: 0.3, y: 0.2, r: 0.45, color: [251, 94, 1],   speed: 0.0004, phase: 0,    drift: 0.15 },
-    { x: 0.7, y: 0.5, r: 0.40, color: [38, 198, 218],  speed: 0.0003, phase: 2,    drift: 0.12 },
-    { x: 0.2, y: 0.7, r: 0.35, color: [120, 80, 240],  speed: 0.0005, phase: 4,    drift: 0.18 },
-    { x: 0.8, y: 0.2, r: 0.30, color: [251, 150, 50],  speed: 0.0006, phase: 1,    drift: 0.10 },
-    { x: 0.5, y: 0.8, r: 0.38, color: [0, 180, 200],   speed: 0.0003, phase: 3,    drift: 0.14 },
-    { x: 0.6, y: 0.3, r: 0.25, color: [200, 60, 80],   speed: 0.0007, phase: 5,    drift: 0.16 },
+    { x: 0.3, y: 0.2, r: 0.45, color: [251, 94, 1],   speed: 0.002,  phase: 0,    drift: 0.25 },
+    { x: 0.7, y: 0.5, r: 0.40, color: [38, 198, 218],  speed: 0.0015, phase: 2,    drift: 0.22 },
+    { x: 0.2, y: 0.7, r: 0.35, color: [120, 80, 240],  speed: 0.0025, phase: 4,    drift: 0.28 },
+    { x: 0.8, y: 0.2, r: 0.30, color: [251, 150, 50],  speed: 0.003,  phase: 1,    drift: 0.20 },
+    { x: 0.5, y: 0.8, r: 0.38, color: [0, 180, 200],   speed: 0.0018, phase: 3,    drift: 0.24 },
+    { x: 0.6, y: 0.3, r: 0.25, color: [200, 60, 80],   speed: 0.0035, phase: 5,    drift: 0.26 },
   ];
 
   let time = 0;
