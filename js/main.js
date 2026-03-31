@@ -138,31 +138,28 @@ document.addEventListener('DOMContentLoaded', () => {
       date: new Date().toISOString(),
     };
 
-    // Subscribe to Mailchimp via jsonp (no CORS issues)
-    const mcListUrl = 'https://diligostrategy.us19.list-manage.com/subscribe/post-json?u=7626df4e69bf6c5255724817a&id=57ea000f96';
+    // Subscribe to Mailchimp via hidden form POST (most reliable, no CORS)
     try {
-      await new Promise((resolve) => {
-        const cbName = '_mc_cb_' + Date.now();
-        window[cbName] = (resp) => { delete window[cbName]; resolve(resp); };
-        const script = document.createElement('script');
-        script.src = mcListUrl
-          + '&EMAIL=' + encodeURIComponent(data.email)
-          + '&FNAME=' + encodeURIComponent(data.name)
-          + '&RESOURCE=' + encodeURIComponent(data.resource)
-          + '&c=' + cbName;
-        document.body.appendChild(script);
-        setTimeout(() => { resolve({}); script.remove(); }, 5000);
-      });
-    } catch (err) { /* fail silently */ }
+      const mcForm = document.createElement('iframe');
+      mcForm.name = 'mc_iframe_' + Date.now();
+      mcForm.style.display = 'none';
+      document.body.appendChild(mcForm);
 
-    // Also notify via FormSubmit
-    try {
-      fetch('https://formsubmit.co/ajax/diligostrategy@gmail.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: data.name, email: data.email, _subject: 'Lead: ' + data.resource }),
-      });
-    } catch (e) {}
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'https://diligostrategy.us19.list-manage.com/subscribe/post?u=7626df4e69bf6c5255724817a&id=57ea000f96';
+      form.target = mcForm.name;
+
+      const fields = { EMAIL: data.email, FNAME: data.name, RESOURCE: data.resource };
+      for (const [k, v] of Object.entries(fields)) {
+        const input = document.createElement('input');
+        input.type = 'hidden'; input.name = k; input.value = v;
+        form.appendChild(input);
+      }
+      document.body.appendChild(form);
+      form.submit();
+      setTimeout(() => { form.remove(); mcForm.remove(); }, 5000);
+    } catch (err) { /* fail silently */ }
 
     // Show success — tell user to check email
     const lang = I18N ? I18N.current : 'en';
@@ -190,17 +187,25 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.disabled = true;
 
     try {
-      await new Promise((resolve) => {
-        const cbName = '_mc_nl_' + Date.now();
-        window[cbName] = () => { delete window[cbName]; resolve(); };
-        const script = document.createElement('script');
-        script.src = 'https://diligostrategy.us19.list-manage.com/subscribe/post-json?u=7626df4e69bf6c5255724817a&id=57ea000f96'
-          + '&EMAIL=' + encodeURIComponent(email)
-          + '&RESOURCE=newsletter'
-          + '&c=' + cbName;
-        document.body.appendChild(script);
-        setTimeout(() => { resolve(); script.remove(); }, 5000);
-      });
+      const mcFrame = document.createElement('iframe');
+      mcFrame.name = 'mc_nl_' + Date.now();
+      mcFrame.style.display = 'none';
+      document.body.appendChild(mcFrame);
+
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'https://diligostrategy.us19.list-manage.com/subscribe/post?u=7626df4e69bf6c5255724817a&id=57ea000f96';
+      form.target = mcFrame.name;
+
+      const fields = { EMAIL: email, RESOURCE: 'newsletter' };
+      for (const [k, v] of Object.entries(fields)) {
+        const input = document.createElement('input');
+        input.type = 'hidden'; input.name = k; input.value = v;
+        form.appendChild(input);
+      }
+      document.body.appendChild(form);
+      form.submit();
+      setTimeout(() => { form.remove(); mcFrame.remove(); }, 5000);
     } catch (e) {}
 
     const lang = I18N ? I18N.current : 'en';

@@ -155,8 +155,8 @@ const I18N = {
     });
     document.documentElement.lang = this.current;
     const flagUS = '<svg width="20" height="14" viewBox="0 0 60 40"><rect width="60" height="40" fill="#B22234"/><rect y="3" width="60" height="3" fill="#fff"/><rect y="9" width="60" height="3" fill="#fff"/><rect y="15" width="60" height="3" fill="#fff"/><rect y="21" width="60" height="3" fill="#fff"/><rect y="27" width="60" height="3" fill="#fff"/><rect y="33" width="60" height="3" fill="#fff"/><rect width="24" height="21" fill="#3C3B6E"/></svg>';
-    const flagMX = '<svg width="20" height="14" viewBox="0 0 60 40"><rect width="20" height="40" fill="#006847"/><rect x="20" width="20" height="40" fill="#fff"/><rect x="40" width="20" height="40" fill="#CE1126"/></svg>';
-    document.getElementById('langFlag').innerHTML = this.current === 'en' ? flagMX : flagUS;
+    const flagES = '<svg width="20" height="14" viewBox="0 0 60 40"><rect width="60" height="10" fill="#AA151B"/><rect y="10" width="60" height="20" fill="#F1BF00"/><rect y="30" width="60" height="10" fill="#AA151B"/></svg>';
+    document.getElementById('langFlag').innerHTML = this.current === 'en' ? flagES : flagUS;
   },
   toggle() {
     this.current = this.current === 'en' ? 'es' : 'en';
