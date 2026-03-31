@@ -107,4 +107,65 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.disabled = true;
   });
 
+  // Lead capture modal for resources
+  const leadModal = document.getElementById('leadModal');
+  const leadClose = document.getElementById('leadClose');
+  const leadForm = document.getElementById('leadForm');
+  const leadResource = document.getElementById('leadResource');
+
+  document.querySelectorAll('.dl-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      leadResource.value = btn.dataset.resource;
+      leadModal.classList.add('show');
+      if (I18N) I18N.apply(); // re-apply i18n to modal
+    });
+  });
+
+  leadClose.addEventListener('click', () => leadModal.classList.remove('show'));
+  leadModal.addEventListener('click', e => { if (e.target === leadModal) leadModal.classList.remove('show'); });
+
+  leadForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = leadForm.querySelector('button[type="submit"]');
+    const origText = btn.textContent;
+    btn.textContent = '...';
+    btn.disabled = true;
+
+    const data = {
+      name: leadForm.name.value,
+      email: leadForm.email.value,
+      resource: leadResource.value,
+      date: new Date().toISOString(),
+    };
+
+    // Send to FormSubmit (logs the lead)
+    try {
+      await fetch('https://formsubmit.co/ajax/diligostrategy@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          _subject: 'Resource Download: ' + data.resource,
+          message: 'Resource: ' + data.resource + '\nName: ' + data.name + '\nEmail: ' + data.email + '\nDate: ' + data.date,
+        }),
+      });
+    } catch (err) { /* fail silently */ }
+
+    // Show success & close
+    leadForm.innerHTML = '<div style="text-align:center;padding:20px 0"><div style="font-size:3rem;margin-bottom:12px">&#10003;</div><p style="font-weight:600;font-size:16px">Thank you! Check your email.</p></div>';
+    setTimeout(() => {
+      leadModal.classList.remove('show');
+      // Reset form after close
+      setTimeout(() => {
+        leadForm.innerHTML = `
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <input type="hidden" name="resource" id="leadResource">
+          <button type="submit" class="btn btn-primary btn-full">Download Free</button>`;
+        if (I18N) I18N.apply();
+      }, 300);
+    }, 2000);
+  });
+
 });

@@ -59,6 +59,13 @@ const I18N = {
       'footer.rights': 'All rights reserved.',
       'resources.tag': 'Free Resources', 'resources.title': 'Guides & <span class="text-gradient">Downloads</span>',
       'resources.sub': 'Practical tools and guides to help you grow your global content strategy.',
+      'resources.download': 'Download Free', 'resources.access': 'Get Access',
+      'r1.title': 'The Multilingual SEO Playbook', 'r1.desc': 'A step-by-step guide to ranking in multiple languages. Keyword research, hreflang, local link building.',
+      'r2.title': 'Content Localization Checklist', 'r2.desc': '20-point checklist to ensure your content is properly localized for each target market.',
+      'r3.title': 'AI Content Tools Guide 2025', 'r3.desc': 'A curated list of the best AI tools for content creation, with pros, cons, and use cases.',
+      'r4.title': 'Global Content ROI Calculator', 'r4.desc': 'Estimate the return on investment of your multilingual content marketing efforts.',
+      'lead.title': 'Get Your Free Download', 'lead.sub': 'Enter your details and we\'ll send it right to your inbox.',
+      'lead.privacy': 'We respect your privacy. No spam, ever.',
       'cookie.text': 'We use cookies to improve your experience. By continuing to browse, you agree to our cookie policy.',
       'cookie.accept': 'Accept', 'cookie.more': 'Learn More',
     },
@@ -117,6 +124,13 @@ const I18N = {
       'footer.rights': 'Todos los derechos reservados.',
       'resources.tag': 'Recursos Gratuitos', 'resources.title': 'Guías y <span class="text-gradient">Descargas</span>',
       'resources.sub': 'Herramientas y guías prácticas para potenciar tu estrategia de contenido global.',
+      'resources.download': 'Descargar Gratis', 'resources.access': 'Obtener Acceso',
+      'r1.title': 'Guía de SEO Multilingüe', 'r1.desc': 'Guía paso a paso para posicionarte en múltiples idiomas. Investigación de keywords, hreflang, link building local.',
+      'r2.title': 'Checklist de Localización', 'r2.desc': 'Lista de 20 puntos para asegurar que tu contenido esté correctamente localizado para cada mercado.',
+      'r3.title': 'Guía de Herramientas AI 2025', 'r3.desc': 'Lista curada de las mejores herramientas AI para creación de contenido, con pros, contras y casos de uso.',
+      'r4.title': 'Calculadora de ROI Global', 'r4.desc': 'Estima el retorno de inversión de tus esfuerzos de marketing de contenido multilingüe.',
+      'lead.title': 'Obtén tu Descarga Gratuita', 'lead.sub': 'Ingresa tus datos y te lo enviaremos directo a tu correo.',
+      'lead.privacy': 'Respetamos tu privacidad. Sin spam, nunca.',
       'cookie.text': 'Usamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra política de cookies.',
       'cookie.accept': 'Aceptar', 'cookie.more': 'Más Info',
     }
@@ -132,7 +146,7 @@ const I18N = {
       if (d[key]) el.placeholder = d[key];
     });
     document.documentElement.lang = this.current;
-    document.getElementById('langFlag').textContent = this.current === 'en' ? 'ES' : 'EN';
+    document.getElementById('langFlag').textContent = this.current === 'en' ? '\uD83C\uDDF2\uD83C\uDDFD' : '\uD83C\uDDFA\uD83C\uDDF8';
   },
   toggle() {
     this.current = this.current === 'en' ? 'es' : 'en';

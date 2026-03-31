@@ -98,7 +98,7 @@
       </div>
       <div class="nav-right">
         <button class="lang-toggle" id="langToggle" title="Switch language">
-          <span class="lang-flag" id="langFlag">EN</span>
+          <span class="lang-flag" id="langFlag">&#127474;&#127485;</span>
         </button>
         <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
           <span></span><span></span><span></span>
@@ -358,27 +358,27 @@
       <div class="resources-grid">
         <div class="resource-card">
           <div class="resource-icon">&#128214;</div>
-          <h3>The Multilingual SEO Playbook</h3>
-          <p>A step-by-step guide to ranking in multiple languages. Keyword research, hreflang, local link building.</p>
-          <a href="#contact" class="btn btn-sm btn-primary">Request PDF</a>
+          <h3 data-i18n="r1.title">The Multilingual SEO Playbook</h3>
+          <p data-i18n="r1.desc">A step-by-step guide to ranking in multiple languages. Keyword research, hreflang, local link building.</p>
+          <button class="btn btn-sm btn-primary dl-btn" data-resource="multilingual-seo-playbook" data-i18n="resources.download">Download Free</button>
         </div>
         <div class="resource-card">
           <div class="resource-icon">&#128203;</div>
-          <h3>Content Localization Checklist</h3>
-          <p>20-point checklist to ensure your content is properly localized for each target market.</p>
-          <a href="#contact" class="btn btn-sm btn-primary">Request PDF</a>
+          <h3 data-i18n="r2.title">Content Localization Checklist</h3>
+          <p data-i18n="r2.desc">20-point checklist to ensure your content is properly localized for each target market.</p>
+          <button class="btn btn-sm btn-primary dl-btn" data-resource="content-localization-checklist" data-i18n="resources.download">Download Free</button>
         </div>
         <div class="resource-card">
           <div class="resource-icon">&#128187;</div>
-          <h3>AI Content Tools Guide 2025</h3>
-          <p>A curated list of the best AI tools for content creation, with pros, cons, and use cases.</p>
-          <a href="#contact" class="btn btn-sm btn-primary">Request PDF</a>
+          <h3 data-i18n="r3.title">AI Content Tools Guide 2025</h3>
+          <p data-i18n="r3.desc">A curated list of the best AI tools for content creation, with pros, cons, and use cases.</p>
+          <button class="btn btn-sm btn-primary dl-btn" data-resource="ai-content-tools-2025" data-i18n="resources.download">Download Free</button>
         </div>
         <div class="resource-card">
           <div class="resource-icon">&#128200;</div>
-          <h3>Global Content ROI Calculator</h3>
-          <p>Estimate the return on investment of your multilingual content marketing efforts.</p>
-          <a href="#contact" class="btn btn-sm btn-primary">Request Access</a>
+          <h3 data-i18n="r4.title">Global Content ROI Calculator</h3>
+          <p data-i18n="r4.desc">Estimate the return on investment of your multilingual content marketing efforts.</p>
+          <button class="btn btn-sm btn-primary dl-btn" data-resource="roi-calculator" data-i18n="resources.access">Get Access</button>
         </div>
       </div>
     </div>
@@ -532,6 +532,22 @@
     <div class="cookie-btns">
       <button class="btn btn-sm btn-primary" id="cookieAccept" data-i18n="cookie.accept">Accept</button>
       <a href="cookies.html" class="btn btn-sm btn-outline" data-i18n="cookie.more">Learn More</a>
+    </div>
+  </div>
+
+  <!-- LEAD CAPTURE MODAL -->
+  <div class="lead-modal-overlay" id="leadModal">
+    <div class="lead-modal">
+      <button class="lead-close" id="leadClose">&times;</button>
+      <h3 data-i18n="lead.title">Get Your Free Download</h3>
+      <p data-i18n="lead.sub">Enter your details and we'll send it right to your inbox.</p>
+      <form id="leadForm">
+        <input type="text" name="name" placeholder="Your Name" data-i18n-ph="form.name" required>
+        <input type="email" name="email" placeholder="Your Email" data-i18n-ph="form.email" required>
+        <input type="hidden" name="resource" id="leadResource">
+        <button type="submit" class="btn btn-primary btn-full" data-i18n="resources.download">Download Free</button>
+      </form>
+      <p class="lead-privacy" data-i18n="lead.privacy">We respect your privacy. No spam, ever.</p>
     </div>
   </div>
 
