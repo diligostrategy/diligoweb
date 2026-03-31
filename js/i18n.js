@@ -57,6 +57,8 @@ const I18N = {
       'footer.company': 'Company', 'footer.services': 'Services', 'footer.legal': 'Legal',
       'footer.privacy': 'Privacy Policy', 'footer.terms': 'Terms & Conditions', 'footer.cookies': 'Cookie Policy',
       'footer.rights': 'All rights reserved.',
+      'resources.tag': 'Free Resources', 'resources.title': 'Guides & <span class="text-gradient">Downloads</span>',
+      'resources.sub': 'Practical tools and guides to help you grow your global content strategy.',
       'cookie.text': 'We use cookies to improve your experience. By continuing to browse, you agree to our cookie policy.',
       'cookie.accept': 'Accept', 'cookie.more': 'Learn More',
     },
@@ -113,6 +115,8 @@ const I18N = {
       'footer.company': 'Empresa', 'footer.services': 'Servicios', 'footer.legal': 'Legal',
       'footer.privacy': 'Política de Privacidad', 'footer.terms': 'Términos y Condiciones', 'footer.cookies': 'Política de Cookies',
       'footer.rights': 'Todos los derechos reservados.',
+      'resources.tag': 'Recursos Gratuitos', 'resources.title': 'Guías y <span class="text-gradient">Descargas</span>',
+      'resources.sub': 'Herramientas y guías prácticas para potenciar tu estrategia de contenido global.',
       'cookie.text': 'Usamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra política de cookies.',
       'cookie.accept': 'Aceptar', 'cookie.more': 'Más Info',
     }
