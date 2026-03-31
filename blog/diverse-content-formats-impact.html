@@ -36,7 +36,7 @@
 
   <section class="section">
     <div class="container">
-      <img src="../img/blog-formats.png" alt="" class="blog-hero-img">
+      <div class="blog-layout">
         <article class="blog-article">
         
         <p>Not all content is created equal. While some audiences prefer in-depth blogs, others engage more with visual content, videos, or podcasts. The key to a successful content marketing strategy is understanding how different formats impact engagement.</p>
@@ -63,6 +63,8 @@
         <p>Platform-specific content — from Instagram Stories to LinkedIn articles to Twitter threads — meets your audience where they already spend their time. Each platform has unique strengths and audience expectations.</p>
         
       </article>
+        <aside class="blog-sidebar sidebar-card-container" id="blogSidebar"></aside>
+        </div>
     </div>
   </section>
 
@@ -92,5 +94,7 @@
       document.getElementById('navHamburger').classList.remove('open');
     }));
   </script>
+  <script src="../js/blog-data.js"></script>
+  <script>renderBlogSidebar("diverse-content-formats-impact");</script>
 </body>
 </html>

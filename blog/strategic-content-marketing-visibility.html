@@ -36,7 +36,7 @@
 
   <section class="section">
     <div class="container">
-      <img src="../img/blog-strategic.png" alt="" class="blog-hero-img">
+      <div class="blog-layout">
         <article class="blog-article">
         
         <p>In today's crowded digital landscape, simply creating content isn't enough — you need a strategic approach to ensure your brand gets noticed. Strategic content marketing is about delivering the right message to the right audience at the right time.</p>
@@ -60,6 +60,8 @@
         <p>Track key metrics like organic traffic, engagement rates, conversion rates, and ROI. Regular reporting helps you understand what's driving results and where to allocate resources for maximum impact.</p>
         
       </article>
+        <aside class="blog-sidebar sidebar-card-container" id="blogSidebar"></aside>
+        </div>
     </div>
   </section>
 
@@ -89,5 +91,7 @@
       document.getElementById('navHamburger').classList.remove('open');
     }));
   </script>
+  <script src="../js/blog-data.js"></script>
+  <script>renderBlogSidebar("strategic-content-marketing-visibility");</script>
 </body>
 </html>

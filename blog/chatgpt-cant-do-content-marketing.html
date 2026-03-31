@@ -36,7 +36,7 @@
 
   <section class="section">
     <div class="container">
-      <img src="../img/blog-ai.png" alt="" class="blog-hero-img">
+      <div class="blog-layout">
         <article class="blog-article">
         
         <p>Your brand voice is what sets you apart from competitors. It's built through a deep understanding of your audience, consistent tone and messaging, and emotional connections with customers. AI can generate content, but it doesn't know your brand.</p>
@@ -60,6 +60,8 @@
         <p>The future of content marketing isn't AI OR humans — it's AI AND humans working together. Use AI for research, drafting, and optimization. Use human expertise for strategy, creativity, brand voice, and quality assurance. This combination produces better content, faster, without sacrificing what makes your brand unique.</p>
         
       </article>
+        <aside class="blog-sidebar sidebar-card-container" id="blogSidebar"></aside>
+        </div>
     </div>
   </section>
 
@@ -89,5 +91,7 @@
       document.getElementById('navHamburger').classList.remove('open');
     }));
   </script>
+  <script src="../js/blog-data.js"></script>
+  <script>renderBlogSidebar("chatgpt-cant-do-content-marketing");</script>
 </body>
 </html>

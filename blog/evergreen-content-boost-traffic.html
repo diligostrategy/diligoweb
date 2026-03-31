@@ -36,7 +36,7 @@
 
   <section class="section">
     <div class="container">
-      <img src="../img/blog-evergreen.png" alt="" class="blog-hero-img">
+      <div class="blog-layout">
         <article class="blog-article">
         
         <p>Creating content that never goes out of style is one of the most effective ways to drive consistent traffic, leads, and engagement over time. Unlike trending or news-based content, evergreen content remains relevant, valuable, and discoverable long after it's published.</p>
@@ -60,6 +60,8 @@
         <p>Don't just publish and forget. Promote your evergreen content regularly through social media, email newsletters, and internal linking. Update it periodically with fresh data and insights to maintain its relevance and search rankings.</p>
         
       </article>
+        <aside class="blog-sidebar sidebar-card-container" id="blogSidebar"></aside>
+        </div>
     </div>
   </section>
 
@@ -89,5 +91,7 @@
       document.getElementById('navHamburger').classList.remove('open');
     }));
   </script>
+  <script src="../js/blog-data.js"></script>
+  <script>renderBlogSidebar("evergreen-content-boost-traffic");</script>
 </body>
 </html>
