@@ -141,27 +141,28 @@ h3 { font-size: 1.25rem; font-weight: 700; }
   background-size: 32px 32px; z-index: 1;
 }
 .hero-blob {
-  position: absolute; border-radius: 50%; filter: blur(80px); opacity: .4;
+  position: absolute; border-radius: 50%; filter: blur(60px); opacity: .7;
   animation: blobFloat 12s ease-in-out infinite alternate;
+  will-change: transform;
 }
 .hero-blob-1 {
-  width: 600px; height: 600px; top: -15%; left: 20%;
-  background: radial-gradient(circle, rgba(251,94,1,.35), transparent 70%);
+  width: 700px; height: 700px; top: -20%; left: 15%;
+  background: radial-gradient(circle, rgba(251,94,1,.5), transparent 65%);
   animation-duration: 14s;
 }
 .hero-blob-2 {
-  width: 500px; height: 500px; top: 30%; right: -5%;
-  background: radial-gradient(circle, rgba(38,198,218,.3), transparent 70%);
+  width: 600px; height: 600px; top: 20%; right: -10%;
+  background: radial-gradient(circle, rgba(38,198,218,.45), transparent 65%);
   animation-duration: 18s; animation-delay: -4s;
 }
 .hero-blob-3 {
-  width: 450px; height: 450px; bottom: -10%; left: -5%;
-  background: radial-gradient(circle, rgba(100,80,220,.25), transparent 70%);
+  width: 550px; height: 550px; bottom: -15%; left: -10%;
+  background: radial-gradient(circle, rgba(120,80,240,.35), transparent 65%);
   animation-duration: 16s; animation-delay: -8s;
 }
 .hero-blob-4 {
-  width: 350px; height: 350px; top: 10%; right: 30%;
-  background: radial-gradient(circle, rgba(251,94,1,.2), transparent 70%);
+  width: 400px; height: 400px; top: 5%; right: 25%;
+  background: radial-gradient(circle, rgba(251,150,50,.3), transparent 65%);
   animation-duration: 20s; animation-delay: -2s;
 }
 @keyframes blobFloat {
