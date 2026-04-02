@@ -1,5 +1,6 @@
 /* Blog post registry — add new posts here for automatic sidebar/listing */
 const BLOG_POSTS = [
+  { slug: 'how-to-build-a-multilingual-content-calendar-that-actually-w', title: 'How to Build a Multilingual Content Calendar That Actually Works', date: '2026-04-02', category: 'Content Strategy', image: '../img/blog-how-to-build-a-multilingual-co.png' },
   { slug: 'evergreen-content-boost-traffic', title: 'How to Write Killer Evergreen Content to Boost Your Traffic', date: '2026-01-29', category: 'Content Marketing', image: '../img/blog-evergreen.png' },
   { slug: 'strategic-content-marketing-visibility', title: 'Boosting Visibility with Strategic Content Marketing', date: '2026-01-10', category: 'Content Marketing', image: '../img/blog-strategic.png' },
   { slug: 'diverse-content-formats-impact', title: 'Exploring Diverse Content Formats for Maximum Impact', date: '2026-01-08', category: 'Content Strategy', image: '../img/blog-formats.png' },
