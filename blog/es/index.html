@@ -157,13 +157,14 @@
         const imgHtml = p.image
           ? '<img src="' + imgSrc + '" alt="' + p.title + '">'
           : '<div class="no-img">&#128221;</div>';
-        const catLabel = catEs[p.category] || p.category;
+        const catLabel = p.categoryEs || catEs[p.category] || p.category;
+        const postTitle = p.titleEs || p.title;
 
         return '<a href="' + p.slug + '.html" class="blog-list-card">'
           + imgHtml
           + '<div class="blog-card-body">'
           + '<div class="blog-card-meta"><span class="blog-card-cat">' + catLabel + '</span><span>' + dateStr + '</span></div>'
-          + '<h3>' + p.title + '</h3>'
+          + '<h3>' + postTitle + '</h3>'
           + '<span class="read-more">Leer art&iacute;culo &rarr;</span>'
           + '</div></a>';
       }).join('');
