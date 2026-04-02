@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog | Diligo Strategy</title>
-  <meta name="description" content="Content marketing insights, SEO tips, and multilingual strategy guides from Diligo Strategy. Expert advice on global content, localization, and AI-powered marketing.">
-  <link rel="canonical" href="https://diligostrategy.com/blog/">
-  <link rel="icon" type="image/png" href="../img/favico.png">
+  <meta name="description" content="Ideas sobre marketing de contenidos, consejos de SEO y guias de estrategia multilingue de Diligo Strategy. Asesoramiento experto en contenido global, localizacion y marketing con IA.">
+  <link rel="canonical" href="https://diligostrategy.com/blog/es/">
+  <link rel="icon" type="image/png" href="../../img/favico.png">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../../css/styles.css">
   <style>
     .blog-page-hero {
       padding: 140px 0 60px;
@@ -83,16 +83,16 @@
 <body>
   <nav class="navbar scrolled" id="navbar">
     <div class="nav-container">
-      <a href="../" class="nav-logo"><img src="../img/logo.png" alt="Diligo Strategy" height="40"></a>
+      <a href="../../" class="nav-logo"><img src="../../img/logo.png" alt="Diligo Strategy" height="40"></a>
       <div class="nav-links" id="navLinks">
-        <a href="../#services">Services</a>
-        <a href="../#about">About</a>
+        <a href="../../#services">Servicios</a>
+        <a href="../../#about">Nosotros</a>
         <a href="./">Blog</a>
-        <a href="../#contact">Contact</a>
-        <a href="../#contact" class="nav-cta">Let's Talk</a>
+        <a href="../../#contact">Contacto</a>
+        <a href="../../#contact" class="nav-cta">Hablemos</a>
       </div>
       <div class="nav-right">
-        <a href="es/" class="lang-toggle" title="Cambiar a Espanol" style="text-decoration:none; font-family:'Inter',sans-serif; font-weight:600; font-size:13px; letter-spacing:.5px;">ES</a>
+        <a href="../" class="lang-toggle" title="Switch to English" style="text-decoration:none; font-family:'Inter',sans-serif; font-weight:600; font-size:13px; letter-spacing:.5px;">EN</a>
         <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -100,8 +100,8 @@
 
   <section class="blog-page-hero">
     <div class="container">
-      <h1>Our <span class="text-gradient">Blog</span></h1>
-      <p>Content marketing insights, SEO tips, and multilingual strategy guides.</p>
+      <h1>Nuestro <span class="text-gradient">Blog</span></h1>
+      <p>Ideas sobre marketing de contenidos, consejos de SEO y guias de estrategia multilingue.</p>
     </div>
   </section>
 
@@ -115,15 +115,22 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-bottom">
-        <p>&copy; 2026 Diligo Strategy LLC. All rights reserved.</p>
+        <p>&copy; 2026 Diligo Strategy LLC. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
 
-  <script src="../js/blog-data.js"></script>
+  <script src="../../js/blog-data.js"></script>
   <script>
+    // Category translation map
+    const catEs = {
+      'Content Strategy': 'Estrategia de Contenido',
+      'Content Marketing': 'Marketing de Contenidos',
+      'AI & Marketing': 'IA y Marketing'
+    };
+
     // Build filter buttons
-    const categories = ['All', ...new Set(BLOG_POSTS.map(p => p.category))];
+    const categories = ['Todos', ...new Set(BLOG_POSTS.map(p => catEs[p.category] || p.category))];
     const filterDiv = document.getElementById('blogFilter');
     categories.forEach((cat, i) => {
       const btn = document.createElement('button');
@@ -132,28 +139,32 @@
       btn.addEventListener('click', () => {
         filterDiv.querySelectorAll('button').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        renderPosts(cat === 'All' ? null : cat);
+        renderPosts(cat === 'Todos' ? null : cat);
       });
       filterDiv.appendChild(btn);
     });
 
     function renderPosts(filterCat) {
       const grid = document.getElementById('blogGrid');
-      const posts = filterCat ? BLOG_POSTS.filter(p => p.category === filterCat) : BLOG_POSTS;
+      const posts = filterCat
+        ? BLOG_POSTS.filter(p => (catEs[p.category] || p.category) === filterCat)
+        : BLOG_POSTS;
 
       grid.innerHTML = posts.map(p => {
         const d = new Date(p.date);
-        const dateStr = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        const dateStr = d.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+        const imgSrc = p.image ? p.image.replace('../img/', '../../img/') : '';
         const imgHtml = p.image
-          ? '<img src="' + p.image + '" alt="' + p.title + '">'
+          ? '<img src="' + imgSrc + '" alt="' + p.title + '">'
           : '<div class="no-img">&#128221;</div>';
+        const catLabel = catEs[p.category] || p.category;
 
         return '<a href="' + p.slug + '.html" class="blog-list-card">'
           + imgHtml
           + '<div class="blog-card-body">'
-          + '<div class="blog-card-meta"><span class="blog-card-cat">' + p.category + '</span><span>' + dateStr + '</span></div>'
+          + '<div class="blog-card-meta"><span class="blog-card-cat">' + catLabel + '</span><span>' + dateStr + '</span></div>'
           + '<h3>' + p.title + '</h3>'
-          + '<span class="read-more">Read article &rarr;</span>'
+          + '<span class="read-more">Leer art&iacute;culo &rarr;</span>'
           + '</div></a>';
       }).join('');
     }

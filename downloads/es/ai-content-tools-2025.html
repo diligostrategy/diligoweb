@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Herramientas de Contenido con IA 2026 | Diligo Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0f1e33;
+    --orange: #FB5E01;
+    --teal: #26c6da;
+    --light-bg: #f7f8fa;
+    --text: #2d3748;
+    --text-light: #64748b;
+    --border: #e2e8f0;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  .page {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 40px 48px;
+  }
+
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--orange);
+    padding-bottom: 20px;
+    margin-bottom: 12px;
+  }
+  .doc-header img { height: 44px; }
+  .doc-header .doc-type {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--orange);
+    font-weight: 700;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 32px;
+    color: var(--orange);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a2d4a 100%);
+    color: #fff;
+    padding: 56px 48px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+  .cover h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .cover .subtitle {
+    font-size: 17px;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .cover .meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--teal);
+  }
+  p { margin-bottom: 14px; }
+
+  /* TOOL CARD */
+  .tool-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 20px;
+    background: #fff;
+  }
+  .tool-card:hover { border-color: var(--teal); }
+
+  .tool-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .tool-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .tool-category {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: var(--navy);
+    color: var(--teal);
+    padding: 3px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .tool-desc {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .tool-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  .tool-meta-item {
+    background: var(--light-bg);
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+  .tool-meta-item strong {
+    color: var(--navy);
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    font-size: 13px;
+  }
+  .pros, .cons {
+    padding: 10px 14px;
+    border-radius: 4px;
+  }
+  .pros { background: #f0fdf4; border-left: 3px solid #22c55e; }
+  .cons { background: #fef2f2; border-left: 3px solid #ef4444; }
+  .pros strong { color: #16a34a; }
+  .cons strong { color: #dc2626; }
+  .pros ul, .cons ul { margin: 4px 0 0 16px; }
+  .pros li, .cons li { margin-bottom: 2px; }
+
+  /* COMPARISON TABLE */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 700px;
+  }
+  th {
+    background: var(--navy);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 12px;
+    white-space: nowrap;
+  }
+  td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: var(--light-bg); }
+
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .badge-free { background: #dcfce7; color: #166534; }
+  .badge-mid { background: #fef3c7; color: #92400e; }
+  .badge-premium { background: #fce7f3; color: #9d174d; }
+
+  .doc-footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 2px solid var(--border);
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-light);
+  }
+  .doc-footer a { color: var(--orange); text-decoration: none; }
+
+  @media print {
+    body { font-size: 11pt; }
+    .page { padding: 0; max-width: 100%; }
+    .back-link, .doc-footer .no-print { display: none; }
+    .cover { break-after: page; }
+    .tool-card { break-inside: avoid; }
+    table { font-size: 10pt; }
+    @page { margin: 1.5cm; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <img src="../../img/logo.png" alt="Diligo Strategy">
+    <span class="doc-type">Guia de Herramientas</span>
+  </div>
+
+  <a href="https://diligostrategy.com" class="back-link">&larr; Volver a diligostrategy.com</a>
+
+  <div class="cover">
+    <h1>Guia de Herramientas de Contenido con IA 2026</h1>
+    <p class="subtitle">Una revision curada de las mejores herramientas impulsadas por IA para creacion, optimizacion y localizacion de contenido</p>
+    <p class="meta">Publicado por Diligo Strategy &middot; Edicion 2026 &middot; diligostrategy.com</p>
+  </div>
+
+  <p>El panorama del contenido con IA ha madurado rapidamente. Esta guia analiza 12 herramientas en cinco categorias: asistentes de escritura, optimizacion SEO, traduccion, contenido visual y edicion. Para cada herramienta, cubrimos en que destaca, precios realistas y pros y contras honestos basados en uso practico.</p>
+
+  <!-- ====== ASISTENTES DE ESCRITURA ====== -->
+  <h2>Asistentes de Escritura</h2>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">ChatGPT (OpenAI)</span>
+      <span class="tool-category">Escritura / Investigacion</span>
+    </div>
+    <p class="tool-desc">El asistente de IA de proposito general mas ampliamente adoptado. Destaca en lluvia de ideas, redaccion, resumen y respuestas a preguntas de investigacion. GPT-4o impulsa la ultima version con solidas capacidades de razonamiento y multilingues.</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item"><strong>Mejor Caso de Uso</strong>Primeros borradores, lluvia de ideas, resumenes de investigacion, redaccion de correos</div>
+      <div class="tool-meta-item"><strong>Precio</strong>Nivel gratuito disponible; Plus a $20/mes; Team a $25/usuario/mes</div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><strong>Ventajas</strong><ul><li>Versatil en muchas tareas</li><li>Fuerte salida multilingue</li><li>Ecosistema de plugins</li><li>Capacidad de navegacion web</li></ul></div>
+      <div class="cons"><strong>Desventajas</strong><ul><li>Puede producir datos plausibles pero incorrectos</li><li>La salida puede sentirse generica sin prompts detallados</li><li>Limites de uso en nivel gratuito</li></ul></div>
+    </div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Claude (Anthropic)</span>
+      <span class="tool-category">Escritura / Analisis</span>
+    </div>
+    <p class="tool-desc">Conocido por su escritura matizada y reflexiva y su fuerte rendimiento en contenido de formato largo. Particularmente efectivo para analisis, edicion y tareas que requieren razonamiento cuidadoso. La ventana de contexto grande maneja documentos extensos.</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item"><strong>Mejor Caso de Uso</strong>Escritura de formato largo, analisis de documentos, edicion de contenido, pensamiento estrategico</div>
+      <div class="tool-meta-item"><strong>Precio</strong>Nivel gratuito; Pro a $20/mes; Team a $25/usuario/mes</div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><strong>Ventajas</strong><ul><li>Excelente calidad de escritura de formato largo</li><li>Ventana de contexto muy grande</li><li>Fuerte en seguir instrucciones complejas</li><li>Menos propenso a alucinaciones</li></ul></div>
+      <div class="cons"><strong>Desventajas</strong><ul><li>Ecosistema de plugins/integraciones mas pequeno</li><li>Sin generacion de imagenes nativa</li><li>Puede ser excesivamente cauteloso</li></ul></div>
+    </div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Jasper</span>
+      <span class="tool-category">Copy de Marketing</span>
+    </div>
+    <p class="tool-desc">Disenado especificamente para equipos de marketing. Ofrece personalizacion de voz de marca, flujos de trabajo de campanas y plantillas para anuncios, correos, landing pages y publicaciones en redes sociales. Se integra con plataformas de marketing comunes.</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item"><strong>Mejor Caso de Uso</strong>Copy de marketing a escala, contenido consistente con la marca entre equipos</div>
+      <div class="tool-meta-item"><strong>Precio</strong>Creator a $49/mes; Pro a $69/mes; Business precio personalizado</div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><strong>Ventajas</strong><ul><li>Entrenamiento de voz de marca</li><li>Plantillas especificas de marketing</li><li>Funciones de colaboracion en equipo</li><li>Flujos de trabajo a nivel de campana</li></ul></div>
+      <div class="cons"><strong>Desventajas</strong><ul><li>Costoso comparado con herramientas de IA generales</li><li>La calidad depende mucho del entrenamiento de voz de marca</li><li>No ideal para contenido no relacionado con marketing</li></ul></div>
+    </div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Copy.ai</span>
+      <span class="tool-category">Ventas y Marketing</span>
+    </div>
+    <p class="tool-desc">Enfocado en flujos de trabajo de automatizacion de ventas y marketing. Genera correos de prospeccion, copy de anuncios, descripciones de productos y publicaciones en redes sociales. Anade cada vez mas automatizacion de flujos de trabajo mas alla de solo la generacion de contenido.</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item"><strong>Mejor Caso de Uso</strong>Alcance de ventas, descripciones de productos, creacion de contenido en lote para redes sociales</div>
+      <div class="tool-meta-item"><strong>Precio</strong>Nivel gratuito (2,000 palabras/mes); Pro a $49/mes; Enterprise personalizado</div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><strong>Ventajas</strong><ul><li>Buen nivel gratuito para probar</li><li>Flujos de trabajo especificos de ventas</li><li>Generacion rapida de resultados</li><li>Funciones de automatizacion de flujos</li></ul></div>
+      <div class="cons"><strong>Desventajas</strong><ul><li>La calidad varia segun la plantilla</li><li>Menos efectivo para contenido de formato largo</li><li>Nivel gratuito muy limitado</li></ul></div>
+    </div>
+  </div>
+
+  <!-- ====== OPTIMIZACION SEO ====== -->
+  <h2>Optimizacion SEO</h2>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Surfer SEO</span>
+      <span class="tool-category">Optimizacion de Contenido</span>
+    </div>
+    <p class="tool-desc">Plataforma de optimizacion de contenido basada en datos. Analiza las paginas mejor posicionadas para una palabra clave y proporciona recomendaciones accionables sobre cantidad de palabras, densidad de palabras clave, encabezados y estructura del contenido. El Editor de Contenido puntua tu contenido en tiempo real.</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item"><strong>Mejor Caso de Uso</strong>Optimizar articulos de blog y landing pages para palabras clave especificas</div>
+      <div class="tool-meta-item"><strong>Precio</strong>Essential a $89/mes; Scale a $129/mes; Enterprise personalizado</div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><strong>Ventajas</strong><ul><li>Recomendaciones respaldadas por datos</li><li>Puntuacion de contenido en tiempo real</li><li>El analizador de SERP es potente</li><li>Integraciones con Google Docs y WordPress</li></ul></div>
+      <div class="cons"><strong>Desventajas</strong><ul><li>Puede fomentar el keyword stuffing si se sigue ciegamente</li><li>Limitado a optimizacion on-page</li><li>Sistema basado en creditos limita el uso</li></ul></div>
+    </div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Clearscope</span>
+      <span class="tool-category">Optimizacion de Contenido</span>
+    </div>
+    <p class="tool-desc">Plataforma de optimizacion de contenido de nivel empresarial. Usa NLP para identificar terminos semanticamente relacionados que el contenido mejor posicionado utiliza. Proporciona un enfoque centrado en la legibilidad para la calificacion de contenido SEO.</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item"><strong>Mejor Caso de Uso</strong>Equipos de contenido empresarial optimizando a escala</div>
+      <div class="tool-meta-item"><strong>Precio</strong>Essentials a $189/mes; Business a $399/mes; Enterprise personalizado</div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><strong>Ventajas</strong><ul><li>Excelente analisis semantico</li><li>Interfaz limpia y simple</li><li>Fuerte integracion con Google Docs</li><li>Enfoque en legibilidad</li></ul></div>
+      <div class="cons"><strong>Desventajas</strong><ul><li>Significativamente mas caro que Surfer</li><li>Menos funciones que los competidores</li><li>Soporte internacional/multilingue limitado</li></ul></div>
+    </div>
+  </div>
+
+  <!-- ====== TRADUCCION ====== -->
+  <h2>Traduccion y Localizacion</h2>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">DeepL</span>
+      <span class="tool-category">Traduccion con IA</span>
+    </div>
+    <p class="tool-desc">Ampliamente considerado el servicio de traduccion con IA mas preciso, particularmente para idiomas europeos. Produce traducciones de sonido natural que a menudo requieren minima post-edicion. Soporta glosarios y configuracion de tono formal/informal.</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item"><strong>Mejor Caso de Uso</strong>Traducciones de alta calidad en primera pasada para idiomas europeos</div>
+      <div class="tool-meta-item"><strong>Precio</strong>Gratuito (5,000 caracteres/mes); Starter a $11/mes; Advanced a $29/mes; API por caracter</div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><strong>Ventajas</strong><ul><li>Calidad superior para idiomas europeos</li><li>Soporte de glosario para consistencia</li><li>Traduccion de documentos preserva formato</li><li>API para integracion en flujos de trabajo</li></ul></div>
+      <div class="cons"><strong>Desventajas</strong><ul><li>Menos pares de idiomas que Google Translate</li><li>Calidad en idiomas asiaticos aun en desarrollo</li><li>Aun requiere post-edicion humana para publicacion</li></ul></div>
+    </div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Smartling</span>
+      <span class="tool-category">TMS / Plataforma de Localizacion</span>
+    </div>
+    <p class="tool-desc">Sistema de gestion de traducciones empresarial que combina traduccion con IA, flujos de trabajo de traductores humanos e integracion de contenido. Se conecta directamente a CMSs, repositorios de codigo y plataformas de marketing para localizacion continua.</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item"><strong>Mejor Caso de Uso</strong>Flujos de trabajo de localizacion continua a escala empresarial</div>
+      <div class="tool-meta-item"><strong>Precio</strong>Precio empresarial personalizado (tipicamente $1,000+/mes)</div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><strong>Ventajas</strong><ul><li>Flujo de trabajo de localizacion de punta a punta</li><li>Integraciones con CMS y codigo</li><li>La memoria de traduccion reduce costos con el tiempo</li><li>Gestion de calidad incorporada</li></ul></div>
+      <div class="cons"><strong>Desventajas</strong><ul><li>Precios empresariales excluyen a PYMEs</li><li>Configuracion e incorporacion compleja</li><li>Excesivo para necesidades de localizacion pequenas</li></ul></div>
+    </div>
+  </div>
+
+  <!-- ====== VISUAL ====== -->
+  <h2>Contenido Visual</h2>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Midjourney</span>
+      <span class="tool-category">Generacion de Imagenes</span>
+    </div>
+    <p class="tool-desc">Generador de imagenes con IA lider, conocido por resultados altamente esteticos y estilizados. Produce imagenes de calidad de marketing a partir de prompts de texto. La version 6 mejoro significativamente el realismo y el renderizado de texto en imagenes.</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item"><strong>Mejor Caso de Uso</strong>Imagenes hero de blog, visuales para redes sociales, arte conceptual, creatividades publicitarias</div>
+      <div class="tool-meta-item"><strong>Precio</strong>Basic a $10/mes; Standard a $30/mes; Pro a $60/mes</div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><strong>Ventajas</strong><ul><li>Maxima calidad estetica</li><li>Excelente para visuales de marketing</li><li>Comunidad activa para inspiracion de prompts</li><li>Control de estilo consistente</li></ul></div>
+      <div class="cons"><strong>Desventajas</strong><ul><li>Opera via Discord (sin app independiente aun)</li><li>Controles de edicion/inpainting limitados</li><li>Licencia comercial requiere plan pago</li></ul></div>
+    </div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Canva Magic Studio</span>
+      <span class="tool-category">Diseno + IA</span>
+    </div>
+    <p class="tool-desc">La suite de IA integrada de Canva agrega generacion de imagenes por texto, Magic Write para copy, eliminacion de fondo y sugerencias de diseno impulsadas por IA directamente dentro del editor familiar de Canva. Ideal para equipos que ya usan Canva.</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item"><strong>Mejor Caso de Uso</strong>Graficos para redes sociales, presentaciones, assets de marketing rapidos</div>
+      <div class="tool-meta-item"><strong>Precio</strong>Gratuito (limitado); Pro a $13/mes; Teams a $10/usuario/mes</div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><strong>Ventajas</strong><ul><li>Todo en uno: diseno + IA</li><li>Curva de aprendizaje muy baja</li><li>Aplicacion del kit de marca</li><li>Colaboracion en equipo</li></ul></div>
+      <div class="cons"><strong>Desventajas</strong><ul><li>Calidad de imagen IA inferior a Midjourney</li><li>Basado en plantillas limita la creatividad</li><li>Funciones de IA requieren suscripcion Pro</li></ul></div>
+    </div>
+  </div>
+
+  <!-- ====== EDICION ====== -->
+  <h2>Edicion y Calidad</h2>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Grammarly</span>
+      <span class="tool-category">Asistente de Escritura / Editor</span>
+    </div>
+    <p class="tool-desc">El estandar para asistencia de escritura impulsada por IA. Va mas alla de la revision gramatical para ofrecer deteccion de tono, mejoras de claridad, deteccion de plagio y ahora funciones de IA generativa. Funciona en navegadores, apps de escritorio y moviles.</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item"><strong>Mejor Caso de Uso</strong>Pulir todo el contenido escrito, asegurar consistencia, soporte para escritores no nativos</div>
+      <div class="tool-meta-item"><strong>Precio</strong>Gratuito (revisiones basicas); Premium a $12/mes; Business a $15/usuario/mes</div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><strong>Ventajas</strong><ul><li>Integracion ubicua (funciona en todas partes)</li><li>Analisis de tono y claridad</li><li>Personalizacion de tono de marca (Business)</li><li>Deteccion de plagio</li></ul></div>
+      <div class="cons"><strong>Desventajas</strong><ul><li>Enfocado principalmente en ingles</li><li>Se requiere Premium para funciones significativas</li><li>Puede sobre-corregir decisiones estilisticas</li></ul></div>
+    </div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Hemingway Editor</span>
+      <span class="tool-category">Legibilidad</span>
+    </div>
+    <p class="tool-desc">Enfocado especificamente en legibilidad. Resalta oraciones complejas, voz pasiva, uso excesivo de adverbios y pasajes dificiles de leer. Ahora incluye sugerencias de reescritura con IA para simplificar el contenido marcado.</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item"><strong>Mejor Caso de Uso</strong>Simplificar contenido complejo, mejorar puntuaciones de legibilidad</div>
+      <div class="tool-meta-item"><strong>Precio</strong>App web gratuita; App de escritorio $19.99 pago unico; Plus a $10/mes</div>
+    </div>
+    <div class="pros-cons">
+      <div class="pros"><strong>Ventajas</strong><ul><li>Enfoque laser en legibilidad</li><li>Version web gratuita disponible</li><li>Opcion de compra unica</li><li>Resaltado visual es intuitivo</li></ul></div>
+      <div class="cons"><strong>Desventajas</strong><ul><li>Solo en ingles</li><li>Sin extension de navegador</li><li>Limitado a legibilidad (sin gramatica)</li></ul></div>
+    </div>
+  </div>
+
+  <!-- TABLA COMPARATIVA -->
+  <h2>Tabla Comparativa Rapida</h2>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Herramienta</th>
+        <th>Categoria</th>
+        <th>Precio Inicial</th>
+        <th>Nivel Gratuito</th>
+        <th>Ideal Para</th>
+        <th>Multilingue</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>ChatGPT</strong></td>
+        <td>Escritura</td>
+        <td>$20/mes</td>
+        <td><span class="badge badge-free">Si</span></td>
+        <td>Redaccion general</td>
+        <td>Fuerte</td>
+      </tr>
+      <tr>
+        <td><strong>Claude</strong></td>
+        <td>Escritura</td>
+        <td>$20/mes</td>
+        <td><span class="badge badge-free">Si</span></td>
+        <td>Formato largo y analisis</td>
+        <td>Fuerte</td>
+      </tr>
+      <tr>
+        <td><strong>Jasper</strong></td>
+        <td>Marketing</td>
+        <td>$49/mes</td>
+        <td><span class="badge badge-mid">Prueba</span></td>
+        <td>Marketing de marca</td>
+        <td>Moderado</td>
+      </tr>
+      <tr>
+        <td><strong>Copy.ai</strong></td>
+        <td>Ventas</td>
+        <td>$49/mes</td>
+        <td><span class="badge badge-free">Si</span></td>
+        <td>Alcance de ventas</td>
+        <td>Moderado</td>
+      </tr>
+      <tr>
+        <td><strong>Surfer SEO</strong></td>
+        <td>SEO</td>
+        <td>$89/mes</td>
+        <td><span class="badge badge-mid">Prueba</span></td>
+        <td>Optimizacion on-page</td>
+        <td>Limitado</td>
+      </tr>
+      <tr>
+        <td><strong>Clearscope</strong></td>
+        <td>SEO</td>
+        <td>$189/mes</td>
+        <td><span class="badge badge-premium">No</span></td>
+        <td>SEO empresarial</td>
+        <td>Limitado</td>
+      </tr>
+      <tr>
+        <td><strong>DeepL</strong></td>
+        <td>Traduccion</td>
+        <td>$11/mes</td>
+        <td><span class="badge badge-free">Si</span></td>
+        <td>Traducciones europeas</td>
+        <td>Funcion principal</td>
+      </tr>
+      <tr>
+        <td><strong>Smartling</strong></td>
+        <td>TMS</td>
+        <td>Personalizado</td>
+        <td><span class="badge badge-premium">No</span></td>
+        <td>Localizacion empresarial</td>
+        <td>Funcion principal</td>
+      </tr>
+      <tr>
+        <td><strong>Midjourney</strong></td>
+        <td>Visual</td>
+        <td>$10/mes</td>
+        <td><span class="badge badge-premium">No</span></td>
+        <td>Imagenes de marketing</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td><strong>Canva Magic</strong></td>
+        <td>Diseno</td>
+        <td>$13/mes</td>
+        <td><span class="badge badge-free">Si</span></td>
+        <td>Assets de diseno rapido</td>
+        <td>Moderado</td>
+      </tr>
+      <tr>
+        <td><strong>Grammarly</strong></td>
+        <td>Edicion</td>
+        <td>$12/mes</td>
+        <td><span class="badge badge-free">Si</span></td>
+        <td>Pulido de escritura</td>
+        <td>Enfocado en ingles</td>
+      </tr>
+      <tr>
+        <td><strong>Hemingway</strong></td>
+        <td>Legibilidad</td>
+        <td>$19.99 unico</td>
+        <td><span class="badge badge-free">Si</span></td>
+        <td>Simplificar contenido</td>
+        <td>Solo ingles</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Como Elegir</h2>
+  <p><strong>Creador de contenido independiente:</strong> Comienza con ChatGPT o Claude para escritura, Grammarly para edicion y DeepL si necesitas traducciones. Costo total menor a $50/mes.</p>
+  <p><strong>Equipo de marketing (5-15 personas):</strong> Considera Jasper para copy consistente con la marca a escala, Surfer SEO para optimizacion, Canva para assets de diseno y Grammarly Business para control de calidad en todo el equipo.</p>
+  <p><strong>Empresa con necesidades de contenido global:</strong> Combina Claude o ChatGPT para redaccion, Clearscope para SEO, Smartling para gestion de localizacion y Midjourney para assets visuales. Presupuesta revision humana en cada etapa.</p>
+
+  <div class="doc-footer">
+    <p>&copy; 2025 Diligo Strategy. Todos los derechos reservados.</p>
+    <p><a href="https://diligostrategy.com">diligostrategy.com</a></p>
+    <p class="no-print" style="margin-top:12px;"><a href="https://diligostrategy.com">&larr; Volver a diligostrategy.com</a></p>
+  </div>
+
+</div>
+</body>
+</html>

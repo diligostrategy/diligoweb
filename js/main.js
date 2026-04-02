@@ -150,7 +150,9 @@ document.addEventListener('DOMContentLoaded', () => {
       form.action = 'https://diligostrategy.us19.list-manage.com/subscribe/post?u=7626df4e69bf6c5255724817a&id=57ea000f96';
       form.target = mcForm.name;
 
-      const fields = { EMAIL: data.email, FNAME: data.name, RESOURCE: data.resource };
+      const lang = I18N ? I18N.current : 'en';
+      const resourcePath = lang === 'es' ? 'es/' + data.resource : data.resource;
+      const fields = { EMAIL: data.email, FNAME: data.name, RESOURCE: resourcePath };
       for (const [k, v] of Object.entries(fields)) {
         const input = document.createElement('input');
         input.type = 'hidden'; input.name = k; input.value = v;
