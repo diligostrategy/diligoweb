@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /downloads/
+Disallow: /js/
+Disallow: /css/
+
 Sitemap: https://diligostrategy.com/sitemap.xml

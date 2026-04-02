@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorar Diversos Formatos de Contenido para Maximo Impacto | Diligo Strategy Blog</title>
+  <meta name="description" content="Explorar Diversos Formatos de Contenido para Maximo Impacto">
+  <link rel="icon" type="image/png" href="../../img/favico.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/service.css">
+</head>
+<body>
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="../../" class="nav-logo"><img src="../../img/logo.png" alt="Diligo Strategy" height="40"></a>
+      <div class="nav-links" id="navLinks">
+        <a href="../../#services">Servicios</a>
+        <a href="../../#about">Nosotros</a>
+        <a href="../../#contact">Contacto</a>
+        <a href="../../#contact" class="nav-cta">Hablemos</a>
+      </div>
+      <div class="nav-right">
+        <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="service-hero blog-hero">
+    <div class="container">
+      <a href="../../" class="back-link">&larr; Volver al Inicio</a>
+      <div class="blog-meta"><span>Estrategia de Contenidos</span> &middot; <span>8 de enero de 2026</span></div>
+      <h1>Explorar Diversos Formatos de Contenido para Maximo Impacto</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="blog-layout">
+        <article class="blog-article">
+
+        <p>No todo el contenido es igual. Mientras algunas audiencias prefieren blogs en profundidad, otras interactuan mas con contenido visual, videos o podcasts. La clave de una estrategia de marketing de contenidos exitosa es entender como los diferentes formatos impactan el engagement.</p>
+
+        <h2>Publicaciones de Blog y Articulos</h2>
+        <p>El contenido escrito sigue siendo la columna vertebral del marketing de contenidos. Las publicaciones de blog y los articulos son excelentes para el SEO, el liderazgo de pensamiento y proporcionar informacion en profundidad sobre temas que interesan a tu audiencia.</p>
+
+        <h2>Contenido en Video</h2>
+        <p>El video es el formato de contenido mas atractivo en linea. Desde clips cortos para redes sociales hasta tutoriales extensos y webinars, el contenido en video captura la atencion y genera tasas de engagement mas altas que el texto solo.</p>
+
+        <h2>Infografias</h2>
+        <p>Los datos y procesos complejos se vuelven digeribles a traves de infografias bien disenadas. Son altamente compartibles en redes sociales y ayudan a establecer tu marca como una autoridad visual en tu industria.</p>
+
+        <h2>eBooks y White Papers</h2>
+        <p>El contenido extenso como eBooks y white papers posiciona tu marca como lider de pensamiento. Tambien son excelentes herramientas de generacion de leads cuando se ofrecen como contenido protegido a cambio de informacion de contacto.</p>
+
+        <h2>Podcasts</h2>
+        <p>Los podcasts te permiten llegar a audiencias durante sus desplazamientos, entrenamientos y otras actividades donde leer no es practico. Construyen conexiones intimas con los oyentes y establecen la voz de tu marca.</p>
+
+        <h2>Newsletters por Email</h2>
+        <p>El email sigue siendo uno de los canales de marketing con mayor ROI. Los newsletters regulares mantienen tu marca en la mente de tu audiencia, nutren leads y dirigen trafico de vuelta a tu sitio web.</p>
+
+        <h2>Contenido para Redes Sociales</h2>
+        <p>El contenido especifico para cada plataforma, desde Instagram Stories hasta articulos de LinkedIn y hilos de Twitter, encuentra a tu audiencia donde ya pasan su tiempo. Cada plataforma tiene fortalezas unicas y expectativas de audiencia diferentes.</p>
+
+      </article>
+        <aside class="blog-sidebar sidebar-card-container" id="blogSidebar"></aside>
+        </div>
+    </div>
+  </section>
+
+  <section class="section section-dark cta-section">
+    <div class="container" style="text-align:center">
+      <h2>Necesitas Ayuda con tu <span class="text-gradient">Estrategia de Contenidos?</span></h2>
+      <p style="color:rgba(255,255,255,.7);max-width:500px;margin:16px auto 32px">Nuestro equipo de expertos esta listo para ayudarte a crear contenido que genere resultados.</p>
+      <a href="../../#contact" class="btn btn-primary">Contactanos</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2025 Diligo Strategy LLC. Todos los derechos reservados. &middot; <a href="../../privacy.html" style="color:rgba(255,255,255,.5)">Privacidad</a> &middot; <a href="../../terms.html" style="color:rgba(255,255,255,.5)">Terminos</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navHamburger').addEventListener('click',()=>{
+      document.getElementById('navLinks').classList.toggle('open');
+      document.getElementById('navHamburger').classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('navHamburger').classList.remove('open');
+    }));
+  </script>
+  <script src="../../js/blog-data.js"></script>
+  <script>renderBlogSidebar("diverse-content-formats-impact");</script>
+</body>
+</html>

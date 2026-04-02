@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url><loc>https://diligostrategy.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+
+  <!-- Service Pages -->
+  <url><loc>https://diligostrategy.com/services/multilingual-content-creation.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://diligostrategy.com/services/seo-global-markets.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://diligostrategy.com/services/ai-powered-content.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://diligostrategy.com/services/translation-and-localization.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://diligostrategy.com/services/content-marketing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://diligostrategy.com/services/copywriting-and-editing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://diligostrategy.com/services/video-production-and-animation.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://diligostrategy.com/services/graphic-design.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://diligostrategy.com/services/ebooks-and-white-papers.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://diligostrategy.com/services/newsletters-and-email.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://diligostrategy.com/services/distribution-strategy.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://diligostrategy.com/services/brand-strategy.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://diligostrategy.com/services/inbound-marketing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://diligostrategy.com/services/social-media-management.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://diligostrategy.com/services/digital-content-audit.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://diligostrategy.com/services/marketing-data-science.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Blog -->
+  <url><loc>https://diligostrategy.com/blog/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://diligostrategy.com/blog/evergreen-content-boost-traffic.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://diligostrategy.com/blog/strategic-content-marketing-visibility.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://diligostrategy.com/blog/chatgpt-cant-do-content-marketing.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://diligostrategy.com/blog/diverse-content-formats-impact.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://diligostrategy.com/blog/how-to-build-a-multilingual-content-calendar-that-actually-w.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Legal Pages -->
   <url><loc>https://diligostrategy.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://diligostrategy.com/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://diligostrategy.com/cookies.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
